@@ -67,7 +67,7 @@
             this.toolBlockEditToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1083, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1083, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.UseWaitCursor = true;
@@ -75,40 +75,40 @@
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
             this.mainToolStripMenuItem.Text = "MAIN";
             // 
             // setupCameraToolStripMenuItem
             // 
             this.setupCameraToolStripMenuItem.Name = "setupCameraToolStripMenuItem";
-            this.setupCameraToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.setupCameraToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.setupCameraToolStripMenuItem.Text = "Setup Camera";
             this.setupCameraToolStripMenuItem.Click += new System.EventHandler(this.setupCameraToolStripMenuItem_Click);
             // 
             // setupProgramsToolStripMenuItem
             // 
             this.setupProgramsToolStripMenuItem.Name = "setupProgramsToolStripMenuItem";
-            this.setupProgramsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.setupProgramsToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
             this.setupProgramsToolStripMenuItem.Text = "Setup Programs";
             this.setupProgramsToolStripMenuItem.Click += new System.EventHandler(this.setupProgramsToolStripMenuItem_Click);
             // 
             // connectPLCToolStripMenuItem
             // 
             this.connectPLCToolStripMenuItem.Name = "connectPLCToolStripMenuItem";
-            this.connectPLCToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.connectPLCToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.connectPLCToolStripMenuItem.Text = "Connect PLC";
             this.connectPLCToolStripMenuItem.Click += new System.EventHandler(this.connectPLCToolStripMenuItem_Click);
             // 
             // logsToolStripMenuItem
             // 
             this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
-            this.logsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
             this.logsToolStripMenuItem.Text = "Logs";
             // 
             // toolBlockEditToolStripMenuItem
             // 
             this.toolBlockEditToolStripMenuItem.Name = "toolBlockEditToolStripMenuItem";
-            this.toolBlockEditToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.toolBlockEditToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
             this.toolBlockEditToolStripMenuItem.Text = "ToolBlockEdit";
             this.toolBlockEditToolStripMenuItem.Click += new System.EventHandler(this.toolBlockEditToolStripMenuItem_Click);
             // 
@@ -128,12 +128,12 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1083, 619);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1083, 615);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.UseWaitCursor = true;
             // 
@@ -149,7 +149,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1077, 563);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1077, 559);
             this.tableLayoutPanel2.TabIndex = 1;
             this.tableLayoutPanel2.UseWaitCursor = true;
             // 
@@ -168,7 +168,7 @@
             this.cogRecordDisplay1.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay1.Name = "cogRecordDisplay1";
             this.cogRecordDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay1.OcxState")));
-            this.cogRecordDisplay1.Size = new System.Drawing.Size(532, 557);
+            this.cogRecordDisplay1.Size = new System.Drawing.Size(532, 553);
             this.cogRecordDisplay1.TabIndex = 0;
             this.cogRecordDisplay1.UseWaitCursor = true;
             // 
@@ -187,7 +187,7 @@
             this.cogRecordDisplay2.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay2.Name = "cogRecordDisplay2";
             this.cogRecordDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay2.OcxState")));
-            this.cogRecordDisplay2.Size = new System.Drawing.Size(533, 557);
+            this.cogRecordDisplay2.Size = new System.Drawing.Size(533, 553);
             this.cogRecordDisplay2.TabIndex = 1;
             this.cogRecordDisplay2.UseWaitCursor = true;
             // 
@@ -200,7 +200,7 @@
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 572);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 568);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -215,7 +215,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 38);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Trigger1";
+            this.button1.Text = "Trigger";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -227,7 +227,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(156, 38);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Trigger 2";
+            this.button2.Text = "Live";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.UseWaitCursor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -245,7 +245,7 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 643);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -255,7 +255,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Main";
-            this.Text = "BROTHER KNIFE";
+            this.Text = "HITACHI ASTEMO INSPECTION SYSTEM";
             this.UseWaitCursor = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
