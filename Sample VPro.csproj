@@ -191,6 +191,7 @@
     <Content Include="Icon\Hitachi-Icon.ico" />
     <Content Include="Icon\PLC-Mitsubishi-FX5U-1.ico" />
     <Content Include="Icon\VNAS_icon.ico" />
+    <Content Include="Images\mạch tổng.jpg" />
     <Content Include="Images\ảnh phong cảnh.jfif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
