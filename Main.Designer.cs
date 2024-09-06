@@ -39,20 +39,20 @@
             this.toolBlockEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
             this.cogVerifierControl1 = new Cognex.VisionPro.Inspection.CogVerifierControl();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.bnExportCVS = new System.Windows.Forms.Button();
+            this.bnLive = new System.Windows.Forms.Button();
+            this.bnTrigger = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cogRecordDisplay1 = new Cognex.VisionPro.CogRecordDisplay();
-            this.cogRecordDisplay2 = new Cognex.VisionPro.CogRecordDisplay();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
+            this.cogDisplay2 = new Cognex.VisionPro.Display.CogDisplay();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplay1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplay2)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -121,12 +121,64 @@
             this.cogVerifierControl1.Subject = null;
             this.cogVerifierControl1.TabIndex = 0;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel3.Controls.Add(this.bnTrigger, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.bnLive, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.bnExportCVS, 2, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 568);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(541, 44);
+            this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel3.UseWaitCursor = true;
+            // 
+            // bnExportCVS
+            // 
+            this.bnExportCVS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bnExportCVS.Location = new System.Drawing.Point(327, 3);
+            this.bnExportCVS.Name = "bnExportCVS";
+            this.bnExportCVS.Size = new System.Drawing.Size(211, 38);
+            this.bnExportCVS.TabIndex = 2;
+            this.bnExportCVS.Text = "Export .cvs";
+            this.bnExportCVS.UseVisualStyleBackColor = true;
+            this.bnExportCVS.UseWaitCursor = true;
+            // 
+            // bnLive
+            // 
+            this.bnLive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bnLive.Location = new System.Drawing.Point(165, 3);
+            this.bnLive.Name = "bnLive";
+            this.bnLive.Size = new System.Drawing.Size(156, 38);
+            this.bnLive.TabIndex = 1;
+            this.bnLive.Text = "Live";
+            this.bnLive.UseVisualStyleBackColor = true;
+            this.bnLive.UseWaitCursor = true;
+            this.bnLive.Click += new System.EventHandler(this.bnLive_Click);
+            // 
+            // bnTrigger
+            // 
+            this.bnTrigger.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bnTrigger.Location = new System.Drawing.Point(3, 3);
+            this.bnTrigger.Name = "bnTrigger";
+            this.bnTrigger.Size = new System.Drawing.Size(156, 38);
+            this.bnTrigger.TabIndex = 0;
+            this.bnTrigger.Text = "Trigger";
+            this.bnTrigger.UseVisualStyleBackColor = true;
+            this.bnTrigger.UseWaitCursor = true;
+            this.bnTrigger.Click += new System.EventHandler(this.bnTrigger_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -142,106 +194,52 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.cogRecordDisplay1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cogRecordDisplay2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cogDisplay1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cogDisplay2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1077, 559);
-            this.tableLayoutPanel2.TabIndex = 1;
-            this.tableLayoutPanel2.UseWaitCursor = true;
+            this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // cogRecordDisplay1
+            // cogDisplay1
             // 
-            this.cogRecordDisplay1.ColorMapLowerClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplay1.ColorMapLowerRoiLimit = 0D;
-            this.cogRecordDisplay1.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
-            this.cogRecordDisplay1.ColorMapUpperClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplay1.ColorMapUpperRoiLimit = 1D;
-            this.cogRecordDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cogRecordDisplay1.DoubleTapZoomCycleLength = 2;
-            this.cogRecordDisplay1.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplay1.Location = new System.Drawing.Point(3, 3);
-            this.cogRecordDisplay1.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
-            this.cogRecordDisplay1.MouseWheelSensitivity = 1D;
-            this.cogRecordDisplay1.Name = "cogRecordDisplay1";
-            this.cogRecordDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay1.OcxState")));
-            this.cogRecordDisplay1.Size = new System.Drawing.Size(532, 553);
-            this.cogRecordDisplay1.TabIndex = 0;
-            this.cogRecordDisplay1.UseWaitCursor = true;
+            this.cogDisplay1.ColorMapLowerClipColor = System.Drawing.Color.Black;
+            this.cogDisplay1.ColorMapLowerRoiLimit = 0D;
+            this.cogDisplay1.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
+            this.cogDisplay1.ColorMapUpperClipColor = System.Drawing.Color.Black;
+            this.cogDisplay1.ColorMapUpperRoiLimit = 1D;
+            this.cogDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cogDisplay1.DoubleTapZoomCycleLength = 2;
+            this.cogDisplay1.DoubleTapZoomSensitivity = 2.5D;
+            this.cogDisplay1.Location = new System.Drawing.Point(3, 3);
+            this.cogDisplay1.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
+            this.cogDisplay1.MouseWheelSensitivity = 1D;
+            this.cogDisplay1.Name = "cogDisplay1";
+            this.cogDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay1.OcxState")));
+            this.cogDisplay1.Size = new System.Drawing.Size(532, 553);
+            this.cogDisplay1.TabIndex = 0;
             // 
-            // cogRecordDisplay2
+            // cogDisplay2
             // 
-            this.cogRecordDisplay2.ColorMapLowerClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplay2.ColorMapLowerRoiLimit = 0D;
-            this.cogRecordDisplay2.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
-            this.cogRecordDisplay2.ColorMapUpperClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplay2.ColorMapUpperRoiLimit = 1D;
-            this.cogRecordDisplay2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cogRecordDisplay2.DoubleTapZoomCycleLength = 2;
-            this.cogRecordDisplay2.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplay2.Location = new System.Drawing.Point(541, 3);
-            this.cogRecordDisplay2.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
-            this.cogRecordDisplay2.MouseWheelSensitivity = 1D;
-            this.cogRecordDisplay2.Name = "cogRecordDisplay2";
-            this.cogRecordDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay2.OcxState")));
-            this.cogRecordDisplay2.Size = new System.Drawing.Size(533, 553);
-            this.cogRecordDisplay2.TabIndex = 1;
-            this.cogRecordDisplay2.UseWaitCursor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 568);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(541, 44);
-            this.tableLayoutPanel3.TabIndex = 2;
-            this.tableLayoutPanel3.UseWaitCursor = true;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Trigger";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(165, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Live";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.UseWaitCursor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(327, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(211, 38);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Export .cvs";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.UseWaitCursor = true;
+            this.cogDisplay2.ColorMapLowerClipColor = System.Drawing.Color.Black;
+            this.cogDisplay2.ColorMapLowerRoiLimit = 0D;
+            this.cogDisplay2.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
+            this.cogDisplay2.ColorMapUpperClipColor = System.Drawing.Color.Black;
+            this.cogDisplay2.ColorMapUpperRoiLimit = 1D;
+            this.cogDisplay2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cogDisplay2.DoubleTapZoomCycleLength = 2;
+            this.cogDisplay2.DoubleTapZoomSensitivity = 2.5D;
+            this.cogDisplay2.Location = new System.Drawing.Point(541, 3);
+            this.cogDisplay2.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
+            this.cogDisplay2.MouseWheelSensitivity = 1D;
+            this.cogDisplay2.Name = "cogDisplay2";
+            this.cogDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay2.OcxState")));
+            this.cogDisplay2.Size = new System.Drawing.Size(533, 553);
+            this.cogDisplay2.TabIndex = 1;
             // 
             // Main
             // 
@@ -260,11 +258,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplay1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplay2)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,15 +278,15 @@
         private System.Windows.Forms.ToolStripMenuItem connectPLCToolStripMenuItem;
         private System.ServiceProcess.ServiceController serviceController1;
         private Cognex.VisionPro.Inspection.CogVerifierControl cogVerifierControl1;
+        private System.Windows.Forms.ToolStripMenuItem toolBlockEditToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button bnTrigger;
+        private System.Windows.Forms.Button bnLive;
+        private System.Windows.Forms.Button bnExportCVS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Cognex.VisionPro.CogRecordDisplay cogRecordDisplay1;
-        private Cognex.VisionPro.CogRecordDisplay cogRecordDisplay2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ToolStripMenuItem toolBlockEditToolStripMenuItem;
+        private Cognex.VisionPro.Display.CogDisplay cogDisplay1;
+        private Cognex.VisionPro.Display.CogDisplay cogDisplay2;
     }
 }
 

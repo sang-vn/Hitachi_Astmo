@@ -19,6 +19,11 @@ namespace Hitachi_Astemo
         public CogToolBlock toolBlock1 = new CogToolBlock();
         public CogToolBlock toolBlock2 = new CogToolBlock();
 
+        CogFrameGrabbers myframegrabbers;
+        ICogFrameGrabber myframegrabber;
+        ICogAcqFifo myFifo;
+
+
         public Main()
         {
             InitializeComponent();
@@ -45,20 +50,39 @@ namespace Hitachi_Astemo
             toolBlock2 = CogSerializer.LoadObjectFromFile(Path2) as CogToolBlock;
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void InitCamera()
         {
-            toolBlock1.Run();
-            cogRecordDisplay1.InteractiveGraphics.Clear();
-            cogRecordDisplay1.StaticGraphics.Clear();
-            cogRecordDisplay1.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
+            myframegrabbers = new CogFrameGrabbers();
+            myframegrabber = myframegrabbers[0];
+
+            CogStringCollection availableVideoFormats = myframegrabber.AvailableVideoFormats;
+            myFifo = myframegrabber.CreateAcqFifo(availableVideoFormats[0], Cognex.VisionPro.CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
         }
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private ICogImage trigger()
         {
-            toolBlock2.Run();
-            cogRecordDisplay2.InteractiveGraphics.Clear();
-            cogRecordDisplay2.StaticGraphics.Clear();
-            cogRecordDisplay2.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
+            ICogImage image = null;
+            int trigNum;
+            image = myFifo.Acquire(out trigNum);
+
+            return image;
+        }
+
+        private void bnTrigger_Click(object sender, System.EventArgs e)
+        {
+            //toolBlock1.Run();
+            //cogRecordDisplay1.InteractiveGraphics.Clear();
+            //cogRecordDisplay1.StaticGraphics.Clear();
+            //cogRecordDisplay1.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
+            trigger();
+        }
+
+        private void bnLive_Click(object sender, System.EventArgs e)
+        {
+            //toolBlock2.Run();
+            //cogRecordDisplay2.InteractiveGraphics.Clear();
+            //cogRecordDisplay2.StaticGraphics.Clear();
+            //cogRecordDisplay2.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
         }
 
         private void toolBlockEditToolStripMenuItem_Click(object sender, System.EventArgs e)
