@@ -17,6 +17,8 @@ namespace Hitachi_Astemo
 {
     public partial class Main : Form
     {
+        private int check_face = 0;
+
         //Intial connect Camera
         public CogToolBlock toolBlock = new CogToolBlock();
         CogFrameGrabbers myframegrabbers;
@@ -39,7 +41,12 @@ namespace Hitachi_Astemo
         public Main()
         {
             InitializeComponent();
+            ConnectPLC();
+            ConnectCamera();
+            ConnectLights();
         }
+
+        
 
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
@@ -67,14 +74,164 @@ namespace Hitachi_Astemo
             //Cập nhật giao diện
             IpAddress_PLC = inPort.Item1;
             Port_PLC = inPort.Item2;
+        }
 
+        private void ConnectPLC()
+        {
+            try
+            {
+                tcpClient_PLC = new TcpClient(IpAddress_PLC, Port_PLC);
+                stream_PLC = tcpClient_PLC.GetStream();
+                if (tcpClient_PLC.Connected)
+                {
+                    lbPLCConnected.Text = "Connected";
+                    lbPLCConnected.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lbPLCConnected.Text = "Disconnected";
+                    lbPLCConnected.ForeColor = Color.Red;
+                }
+            }
 
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //Setup Camera
+        private void ConnectCamera()
+        {
 
+        }
 
         //Setup Lights
+        private void ConnectLights()
+        {
+            try
+            {
+                tcpClient_Lights = new TcpClient(IpAddress_Lights, Port_Lights);
+                stream_Lights = tcpClient_Lights.GetStream();
+                if (tcpClient_Lights.Connected)
+                {
+                    lbLightsConnected.Text = "Connected";
+                    lbLightsConnected.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lbLightsConnected.Text = "Disconnected";
+                    lbLightsConnected.ForeColor = Color.Red;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+        #region Processing
+        private void Processing()
+        {
+            try
+            {
+                //ReadModel
+
+                //Choose toolblock
+
+                //If check face 1
+                if(check_face == 1)
+                {
+                    try
+                    {
+                        //while bit m1000 = 0
+                        while (false)
+                        {
+                            //Read bit Trigger M1000
+
+                            //if = 0 continues
+                            //if time wait > 4000ms show Error
+
+                            //if = 1 Excute Processing()
+                            //and check_face = 2
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+
+                //If check face 2
+                if (check_face == 2)
+                {
+                    try
+                    {
+                        //while bit m1000 = 0
+                        while (false)
+                        {
+                            //Read bit Trigger M1000
+
+                            //if = 0 continues
+                            //if time wait > 4000ms show Error
+
+                            //if = 1 Excute Processing()
+                            //and check_face = 3
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+
+                //If check face 3
+                if (check_face == 3)
+                {
+                    try
+                    {
+                        //while bit m1002 = 0
+                        while (false)
+                        {
+                            //Read bit Trigger M1002
+
+                            //if = 0 continues
+                            //if time wait > 4000ms show Error
+
+                            //if = 1 Excute Processing()
+                            //and check_face = 1
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Run
+        private void Run()
+        {
+            //Turn on Lights
+            //Wait 20ms, Acquisit Image
+            //Write Trigger OK M1010
+            //Run toolblock.FaceN
+            //Lưu ảnh NG ra bên cạnh
+            //Write OK/NG
+        }
+        #endregion
     }
 
 }
