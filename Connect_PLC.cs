@@ -19,9 +19,9 @@ namespace Hitachi_Astemo
 {
     public partial class Connect_PLC : Form
     {
-        private TcpClient tcpClient = new TcpClient();
-        private string IpAddress;
-        private int Port;
+        public TcpClient tcpClient = new TcpClient();
+        public string IpAddress;
+        public int Port;
         Stream stream = null;
         
         
@@ -155,9 +155,6 @@ namespace Hitachi_Astemo
             cbbRegister.Enabled = false;
             tbBeginRegisterRead.Enabled = false;
             tbNumRegisterRead.Enabled = false;
-            tbData1.Enabled = false;
-            cbHEX1.Enabled = false;
-            bnSend1.Enabled = false;
         }
 
         private void cbReadMode_CheckedChanged(object sender, EventArgs e)
@@ -168,9 +165,6 @@ namespace Hitachi_Astemo
                 cbbRegister.Enabled = true;
                 tbBeginRegisterRead.Enabled = true;
                 tbNumRegisterRead.Enabled = true;
-                tbData1.Enabled = true;
-                cbHEX1.Enabled = true;
-                bnSend1.Enabled = true;
             }
             if (!cbReadMode.Checked)
             {
@@ -178,9 +172,6 @@ namespace Hitachi_Astemo
                 cbbRegister.Enabled = false;
                 tbBeginRegisterRead.Enabled = false;
                 tbNumRegisterRead.Enabled = false;
-                tbData1.Enabled = false;
-                cbHEX1.Enabled = false;
-                bnSend1.Enabled = false;
             }
         }
 
@@ -192,9 +183,6 @@ namespace Hitachi_Astemo
                 cbbRegister.Enabled = true;
                 tbBeginRegisterRead.Enabled = true;
                 tbNumRegisterRead.Enabled = true;
-                tbData1.Enabled = true;
-                cbHEX1.Enabled = true;
-                bnSend1.Enabled = true;
             }
             if (!cbWriteMode.Checked)
             {
@@ -202,10 +190,27 @@ namespace Hitachi_Astemo
                 cbbRegister.Enabled = false;
                 tbBeginRegisterRead.Enabled = false;
                 tbNumRegisterRead.Enabled = false;
-                tbData1.Enabled = false;
-                cbHEX1.Enabled = false;
-                bnSend1.Enabled = false;
             }
         }
+
+        public string IP_PLC
+        {
+            get { return tbIpAddress.Text; }
+            set { tbIpAddress.Text = value; }
+        }
+
+        public int Port_PLC
+        {
+            get { return int.Parse(tbPort.Text); }
+            set { tbIpAddress.Text = value.ToString(); }
+        }
+
+        public event EventHandler<Tuple<string, int>> IPChanged;
+
+        private void bnSave_Click(object sender, EventArgs e)
+        {
+            IPChanged?.Invoke(this, new Tuple<string, int> (IP_PLC, Port_PLC));
+        }
+        
     }
 }

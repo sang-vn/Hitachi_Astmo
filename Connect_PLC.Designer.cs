@@ -41,19 +41,33 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bnSend1 = new System.Windows.Forms.Button();
-            this.cbHEX1 = new System.Windows.Forms.CheckBox();
-            this.tbData1 = new System.Windows.Forms.TextBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbWriteMode = new System.Windows.Forms.CheckBox();
             this.tbNumRegisterRead = new System.Windows.Forms.TextBox();
             this.tbBeginRegisterRead = new System.Windows.Forms.TextBox();
+            this.cbReadMode = new System.Windows.Forms.CheckBox();
             this.cbbRegister = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbReadMode = new System.Windows.Forms.CheckBox();
-            this.cbWriteMode = new System.Windows.Forms.CheckBox();
+            this.bnSave = new System.Windows.Forms.Button();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -163,55 +177,205 @@
             // 
             // GroupBox1
             // 
-            this.GroupBox1.Controls.Add(this.textBox1);
-            this.GroupBox1.Controls.Add(this.bnSend1);
-            this.GroupBox1.Controls.Add(this.cbHEX1);
-            this.GroupBox1.Controls.Add(this.tbData1);
+            this.GroupBox1.Controls.Add(this.button12);
+            this.GroupBox1.Controls.Add(this.button11);
+            this.GroupBox1.Controls.Add(this.button9);
+            this.GroupBox1.Controls.Add(this.button10);
+            this.GroupBox1.Controls.Add(this.button5);
+            this.GroupBox1.Controls.Add(this.button6);
+            this.GroupBox1.Controls.Add(this.button7);
+            this.GroupBox1.Controls.Add(this.button8);
+            this.GroupBox1.Controls.Add(this.label12);
+            this.GroupBox1.Controls.Add(this.label11);
+            this.GroupBox1.Controls.Add(this.label10);
+            this.GroupBox1.Controls.Add(this.label9);
+            this.GroupBox1.Controls.Add(this.label8);
+            this.GroupBox1.Controls.Add(this.button4);
+            this.GroupBox1.Controls.Add(this.button3);
+            this.GroupBox1.Controls.Add(this.button2);
+            this.GroupBox1.Controls.Add(this.button1);
+            this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.GroupBox1.Location = new System.Drawing.Point(18, 317);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(644, 131);
+            this.GroupBox1.Size = new System.Drawing.Size(644, 178);
             this.GroupBox1.TabIndex = 12;
             this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Data Send";
+            this.GroupBox1.Text = "Test Data";
             // 
-            // textBox1
+            // button12
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(9, 54);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(629, 69);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Ví dụ: \r\n+ Muốn viết 1234 lên D100, 4321 lên D101 thì chuỗi cuối là A8 | 02 00 | " +
-    "d2 04 e1 10\r\n+ Muốn ON cả 5 địa chỉ từ Y0 đến Y4   thì chuỗi cuối là 9d | 05 00 " +
-    "| 11 11 10 ";
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(214, 144);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 25);
+            this.button12.TabIndex = 22;
+            this.button12.Text = "M1030";
+            this.button12.UseVisualStyleBackColor = true;
             // 
-            // bnSend1
+            // button11
             // 
-            this.bnSend1.Location = new System.Drawing.Point(548, 22);
-            this.bnSend1.Name = "bnSend1";
-            this.bnSend1.Size = new System.Drawing.Size(64, 23);
-            this.bnSend1.TabIndex = 2;
-            this.bnSend1.Text = "Send";
-            this.bnSend1.UseVisualStyleBackColor = true;
-            this.bnSend1.Click += new System.EventHandler(this.bnSend1_Click);
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(214, 116);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 25);
+            this.button11.TabIndex = 21;
+            this.button11.Text = "D1000";
+            this.button11.UseVisualStyleBackColor = true;
             // 
-            // cbHEX1
+            // button9
             // 
-            this.cbHEX1.AutoSize = true;
-            this.cbHEX1.Location = new System.Drawing.Point(477, 25);
-            this.cbHEX1.Name = "cbHEX1";
-            this.cbHEX1.Size = new System.Drawing.Size(56, 20);
-            this.cbHEX1.TabIndex = 1;
-            this.cbHEX1.Text = "HEX";
-            this.cbHEX1.UseVisualStyleBackColor = true;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(304, 88);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 25);
+            this.button9.TabIndex = 20;
+            this.button9.Text = "M1021";
+            this.button9.UseVisualStyleBackColor = true;
             // 
-            // tbData1
+            // button10
             // 
-            this.tbData1.Location = new System.Drawing.Point(7, 22);
-            this.tbData1.Name = "tbData1";
-            this.tbData1.Size = new System.Drawing.Size(456, 22);
-            this.tbData1.TabIndex = 0;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(214, 88);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 25);
+            this.button10.TabIndex = 19;
+            this.button10.Text = "M1020";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(484, 60);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 25);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "M1013";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(394, 60);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 25);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "M1012";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(304, 60);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 25);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "M1011";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(214, 60);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 25);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "M1010";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(35, 144);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 25);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Heart Bits";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(35, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 25);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Read Model";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(35, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 25);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Write Vision Result";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(35, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(120, 25);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Write Trigger OK";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(35, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 25);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Read Trigger";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(484, 32);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 25);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "M1003";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(394, 32);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 25);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "M1002";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(304, 32);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 25);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "M1001";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(214, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 25);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "M1000";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -230,6 +394,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "R/W";
             // 
+            // cbWriteMode
+            // 
+            this.cbWriteMode.AutoSize = true;
+            this.cbWriteMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cbWriteMode.Location = new System.Drawing.Point(97, 21);
+            this.cbWriteMode.Name = "cbWriteMode";
+            this.cbWriteMode.Size = new System.Drawing.Size(71, 24);
+            this.cbWriteMode.TabIndex = 7;
+            this.cbWriteMode.Text = "Write";
+            this.cbWriteMode.UseVisualStyleBackColor = true;
+            this.cbWriteMode.CheckedChanged += new System.EventHandler(this.cbWriteMode_CheckedChanged);
+            // 
             // tbNumRegisterRead
             // 
             this.tbNumRegisterRead.Location = new System.Drawing.Point(71, 106);
@@ -247,6 +423,18 @@
             this.tbBeginRegisterRead.TabIndex = 4;
             this.tbBeginRegisterRead.Text = "0";
             this.tbBeginRegisterRead.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbReadMode
+            // 
+            this.cbReadMode.AutoSize = true;
+            this.cbReadMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cbReadMode.Location = new System.Drawing.Point(9, 21);
+            this.cbReadMode.Name = "cbReadMode";
+            this.cbReadMode.Size = new System.Drawing.Size(70, 24);
+            this.cbReadMode.TabIndex = 6;
+            this.cbReadMode.Text = "Read";
+            this.cbReadMode.UseVisualStyleBackColor = true;
+            this.cbReadMode.CheckedChanged += new System.EventHandler(this.cbReadMode_CheckedChanged);
             // 
             // cbbRegister
             // 
@@ -292,36 +480,24 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Register";
             // 
-            // cbReadMode
+            // bnSave
             // 
-            this.cbReadMode.AutoSize = true;
-            this.cbReadMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.cbReadMode.Location = new System.Drawing.Point(9, 21);
-            this.cbReadMode.Name = "cbReadMode";
-            this.cbReadMode.Size = new System.Drawing.Size(70, 24);
-            this.cbReadMode.TabIndex = 6;
-            this.cbReadMode.Text = "Read";
-            this.cbReadMode.UseVisualStyleBackColor = true;
-            this.cbReadMode.CheckedChanged += new System.EventHandler(this.cbReadMode_CheckedChanged);
-            // 
-            // cbWriteMode
-            // 
-            this.cbWriteMode.AutoSize = true;
-            this.cbWriteMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.cbWriteMode.Location = new System.Drawing.Point(97, 21);
-            this.cbWriteMode.Name = "cbWriteMode";
-            this.cbWriteMode.Size = new System.Drawing.Size(71, 24);
-            this.cbWriteMode.TabIndex = 7;
-            this.cbWriteMode.Text = "Write";
-            this.cbWriteMode.UseVisualStyleBackColor = true;
-            this.cbWriteMode.CheckedChanged += new System.EventHandler(this.cbWriteMode_CheckedChanged);
+            this.bnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.bnSave.Location = new System.Drawing.Point(21, 502);
+            this.bnSave.Name = "bnSave";
+            this.bnSave.Size = new System.Drawing.Size(99, 30);
+            this.bnSave.TabIndex = 15;
+            this.bnSave.Text = "SAVE";
+            this.bnSave.UseVisualStyleBackColor = true;
+            this.bnSave.Click += new System.EventHandler(this.bnSave_Click);
             // 
             // Connect_PLC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(674, 459);
+            this.ClientSize = new System.Drawing.Size(670, 539);
+            this.Controls.Add(this.bnSave);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -337,11 +513,11 @@
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Connect_PLC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connect_PLC";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Connect_PLC_FormClosing);
             this.Load += new System.EventHandler(this.Connect_PLC_Load);
             this.GroupBox1.ResumeLayout(false);
-            this.GroupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -363,9 +539,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox GroupBox1;
-        private System.Windows.Forms.Button bnSend1;
-        private System.Windows.Forms.CheckBox cbHEX1;
-        private System.Windows.Forms.TextBox tbData1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -373,8 +546,25 @@
         private System.Windows.Forms.TextBox tbNumRegisterRead;
         private System.Windows.Forms.TextBox tbBeginRegisterRead;
         private System.Windows.Forms.ComboBox cbbRegister;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox cbReadMode;
         private System.Windows.Forms.CheckBox cbWriteMode;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button bnSave;
     }
 }

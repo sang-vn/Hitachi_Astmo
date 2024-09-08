@@ -103,6 +103,7 @@
             this.panel1_3 = new System.Windows.Forms.Panel();
             this.panel1_2 = new System.Windows.Forms.Panel();
             this.panel1_1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsChuongTrinh_Menu1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,6 +163,7 @@
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel26.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,9 +216,11 @@
             // 
             this.bnEn_Vn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bnEn_Vn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bnEn_Vn.Location = new System.Drawing.Point(110, 3);
+            this.bnEn_Vn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnEn_Vn.Location = new System.Drawing.Point(110, 0);
+            this.bnEn_Vn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnEn_Vn.Name = "bnEn_Vn";
-            this.bnEn_Vn.Size = new System.Drawing.Size(101, 28);
+            this.bnEn_Vn.Size = new System.Drawing.Size(101, 34);
             this.bnEn_Vn.TabIndex = 1;
             this.bnEn_Vn.Text = "en/vn";
             this.bnEn_Vn.UseVisualStyleBackColor = false;
@@ -225,9 +229,10 @@
             // bnUser
             // 
             this.bnUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bnUser.Location = new System.Drawing.Point(3, 3);
+            this.bnUser.Location = new System.Drawing.Point(3, 0);
+            this.bnUser.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnUser.Name = "bnUser";
-            this.bnUser.Size = new System.Drawing.Size(101, 28);
+            this.bnUser.Size = new System.Drawing.Size(101, 34);
             this.bnUser.TabIndex = 0;
             this.bnUser.Text = "Admin";
             this.bnUser.UseVisualStyleBackColor = true;
@@ -535,6 +540,7 @@
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel11, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.pictureBox1, 0, 9);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 171);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -578,7 +584,7 @@
             this._txtTime_8.Name = "_txtTime_8";
             this._txtTime_8.Size = new System.Drawing.Size(190, 24);
             this._txtTime_8.TabIndex = 0;
-            this._txtTime_8.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_8.Text = "Time 8";
             this._txtTime_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_8.UseWaitCursor = true;
             // 
@@ -602,7 +608,7 @@
             // 
             // panel8_3
             // 
-            this.panel8_3.BackColor = System.Drawing.Color.Lime;
+            this.panel8_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8_3.Location = new System.Drawing.Point(132, 0);
             this.panel8_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel8_3.Name = "panel8_3";
@@ -612,7 +618,7 @@
             // 
             // panel8_2
             // 
-            this.panel8_2.BackColor = System.Drawing.Color.Lime;
+            this.panel8_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8_2.Location = new System.Drawing.Point(67, 0);
             this.panel8_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel8_2.Name = "panel8_2";
@@ -622,7 +628,7 @@
             // 
             // panel8_1
             // 
-            this.panel8_1.BackColor = System.Drawing.Color.Lime;
+            this.panel8_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8_1.Location = new System.Drawing.Point(2, 0);
             this.panel8_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel8_1.Name = "panel8_1";
@@ -655,7 +661,7 @@
             this._txtTime_7.Name = "_txtTime_7";
             this._txtTime_7.Size = new System.Drawing.Size(190, 24);
             this._txtTime_7.TabIndex = 0;
-            this._txtTime_7.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_7.Text = "Time 7";
             this._txtTime_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_7.UseWaitCursor = true;
             // 
@@ -679,7 +685,7 @@
             // 
             // panel7_3
             // 
-            this.panel7_3.BackColor = System.Drawing.Color.Lime;
+            this.panel7_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel7_3.Location = new System.Drawing.Point(132, 0);
             this.panel7_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel7_3.Name = "panel7_3";
@@ -689,7 +695,7 @@
             // 
             // panel7_2
             // 
-            this.panel7_2.BackColor = System.Drawing.Color.Lime;
+            this.panel7_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel7_2.Location = new System.Drawing.Point(67, 0);
             this.panel7_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel7_2.Name = "panel7_2";
@@ -699,7 +705,7 @@
             // 
             // panel7_1
             // 
-            this.panel7_1.BackColor = System.Drawing.Color.Lime;
+            this.panel7_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel7_1.Location = new System.Drawing.Point(2, 0);
             this.panel7_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel7_1.Name = "panel7_1";
@@ -732,7 +738,7 @@
             this._txtTime_6.Name = "_txtTime_6";
             this._txtTime_6.Size = new System.Drawing.Size(190, 24);
             this._txtTime_6.TabIndex = 0;
-            this._txtTime_6.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_6.Text = "Time 6";
             this._txtTime_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_6.UseWaitCursor = true;
             // 
@@ -756,7 +762,7 @@
             // 
             // panel6_3
             // 
-            this.panel6_3.BackColor = System.Drawing.Color.Lime;
+            this.panel6_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel6_3.Location = new System.Drawing.Point(132, 0);
             this.panel6_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel6_3.Name = "panel6_3";
@@ -766,7 +772,7 @@
             // 
             // panel6_2
             // 
-            this.panel6_2.BackColor = System.Drawing.Color.Lime;
+            this.panel6_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel6_2.Location = new System.Drawing.Point(67, 0);
             this.panel6_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel6_2.Name = "panel6_2";
@@ -776,7 +782,7 @@
             // 
             // panel6_1
             // 
-            this.panel6_1.BackColor = System.Drawing.Color.Lime;
+            this.panel6_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel6_1.Location = new System.Drawing.Point(2, 0);
             this.panel6_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel6_1.Name = "panel6_1";
@@ -809,7 +815,7 @@
             this._txtTime_5.Name = "_txtTime_5";
             this._txtTime_5.Size = new System.Drawing.Size(190, 24);
             this._txtTime_5.TabIndex = 0;
-            this._txtTime_5.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_5.Text = "Time 5";
             this._txtTime_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_5.UseWaitCursor = true;
             // 
@@ -833,7 +839,7 @@
             // 
             // panel5_3
             // 
-            this.panel5_3.BackColor = System.Drawing.Color.Lime;
+            this.panel5_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel5_3.Location = new System.Drawing.Point(132, 0);
             this.panel5_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel5_3.Name = "panel5_3";
@@ -843,7 +849,7 @@
             // 
             // panel5_2
             // 
-            this.panel5_2.BackColor = System.Drawing.Color.Lime;
+            this.panel5_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel5_2.Location = new System.Drawing.Point(67, 0);
             this.panel5_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel5_2.Name = "panel5_2";
@@ -853,7 +859,7 @@
             // 
             // panel5_1
             // 
-            this.panel5_1.BackColor = System.Drawing.Color.Lime;
+            this.panel5_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel5_1.Location = new System.Drawing.Point(2, 0);
             this.panel5_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel5_1.Name = "panel5_1";
@@ -886,7 +892,7 @@
             this._txtTime_4.Name = "_txtTime_4";
             this._txtTime_4.Size = new System.Drawing.Size(190, 24);
             this._txtTime_4.TabIndex = 0;
-            this._txtTime_4.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_4.Text = "Time 4";
             this._txtTime_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_4.UseWaitCursor = true;
             // 
@@ -910,7 +916,7 @@
             // 
             // panel4_3
             // 
-            this.panel4_3.BackColor = System.Drawing.Color.Lime;
+            this.panel4_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4_3.Location = new System.Drawing.Point(132, 0);
             this.panel4_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel4_3.Name = "panel4_3";
@@ -920,7 +926,7 @@
             // 
             // panel4_2
             // 
-            this.panel4_2.BackColor = System.Drawing.Color.Lime;
+            this.panel4_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4_2.Location = new System.Drawing.Point(67, 0);
             this.panel4_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel4_2.Name = "panel4_2";
@@ -930,7 +936,7 @@
             // 
             // panel4_1
             // 
-            this.panel4_1.BackColor = System.Drawing.Color.Lime;
+            this.panel4_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4_1.Location = new System.Drawing.Point(2, 0);
             this.panel4_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel4_1.Name = "panel4_1";
@@ -963,7 +969,7 @@
             this._txtTime_3.Name = "_txtTime_3";
             this._txtTime_3.Size = new System.Drawing.Size(190, 24);
             this._txtTime_3.TabIndex = 0;
-            this._txtTime_3.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_3.Text = "Time 3";
             this._txtTime_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_3.UseWaitCursor = true;
             // 
@@ -987,7 +993,7 @@
             // 
             // panel3_3
             // 
-            this.panel3_3.BackColor = System.Drawing.Color.Lime;
+            this.panel3_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3_3.Location = new System.Drawing.Point(132, 0);
             this.panel3_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel3_3.Name = "panel3_3";
@@ -997,7 +1003,7 @@
             // 
             // panel3_2
             // 
-            this.panel3_2.BackColor = System.Drawing.Color.Lime;
+            this.panel3_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3_2.Location = new System.Drawing.Point(67, 0);
             this.panel3_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel3_2.Name = "panel3_2";
@@ -1007,7 +1013,7 @@
             // 
             // panel3_1
             // 
-            this.panel3_1.BackColor = System.Drawing.Color.Lime;
+            this.panel3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3_1.Location = new System.Drawing.Point(2, 0);
             this.panel3_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel3_1.Name = "panel3_1";
@@ -1040,7 +1046,7 @@
             this._txtTime_2.Name = "_txtTime_2";
             this._txtTime_2.Size = new System.Drawing.Size(190, 24);
             this._txtTime_2.TabIndex = 0;
-            this._txtTime_2.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_2.Text = "Time 2";
             this._txtTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_2.UseWaitCursor = true;
             // 
@@ -1064,7 +1070,7 @@
             // 
             // panel2_3
             // 
-            this.panel2_3.BackColor = System.Drawing.Color.Lime;
+            this.panel2_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2_3.Location = new System.Drawing.Point(132, 0);
             this.panel2_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel2_3.Name = "panel2_3";
@@ -1074,7 +1080,7 @@
             // 
             // panel2_2
             // 
-            this.panel2_2.BackColor = System.Drawing.Color.Lime;
+            this.panel2_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2_2.Location = new System.Drawing.Point(67, 0);
             this.panel2_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel2_2.Name = "panel2_2";
@@ -1084,7 +1090,7 @@
             // 
             // panel2_1
             // 
-            this.panel2_1.BackColor = System.Drawing.Color.Lime;
+            this.panel2_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2_1.Location = new System.Drawing.Point(2, 0);
             this.panel2_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel2_1.Name = "panel2_1";
@@ -1130,7 +1136,7 @@
             this._txtTime_1.Name = "_txtTime_1";
             this._txtTime_1.Size = new System.Drawing.Size(190, 24);
             this._txtTime_1.TabIndex = 0;
-            this._txtTime_1.Text = "08/09/2024    14h:56m:22s ";
+            this._txtTime_1.Text = "Time 1";
             this._txtTime_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._txtTime_1.UseWaitCursor = true;
             // 
@@ -1154,7 +1160,7 @@
             // 
             // panel1_3
             // 
-            this.panel1_3.BackColor = System.Drawing.Color.Lime;
+            this.panel1_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1_3.Location = new System.Drawing.Point(132, 0);
             this.panel1_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1_3.Name = "panel1_3";
@@ -1164,7 +1170,7 @@
             // 
             // panel1_2
             // 
-            this.panel1_2.BackColor = System.Drawing.Color.Lime;
+            this.panel1_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1_2.Location = new System.Drawing.Point(67, 0);
             this.panel1_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1_2.Name = "panel1_2";
@@ -1174,13 +1180,25 @@
             // 
             // panel1_1
             // 
-            this.panel1_1.BackColor = System.Drawing.Color.Lime;
+            this.panel1_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1_1.Location = new System.Drawing.Point(2, 0);
             this.panel1_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1_1.Name = "panel1_1";
             this.panel1_1.Size = new System.Drawing.Size(61, 22);
             this.panel1_1.TabIndex = 0;
             this.panel1_1.UseWaitCursor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Image = global::Hitachi_Astemo.Properties.Resources.VNAS_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 473);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(196, 146);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
             // 
             // tableLayoutPanel26
             // 
@@ -1489,6 +1507,7 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel26.ResumeLayout(false);
             this.tableLayoutPanel26.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1601,6 +1620,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsHelps_Menu1;
         private System.Windows.Forms.Button bnBegin;
         private System.Windows.Forms.Button bnEnd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

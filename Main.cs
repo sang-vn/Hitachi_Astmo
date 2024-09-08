@@ -25,15 +25,15 @@ namespace Hitachi_Astemo
 
         //Intial connect PLC 
         private TcpClient tcpClient_PLC = new TcpClient();
-        private string IpAddress_PLC;
-        private int Port_PLC;
-        Stream stream_PLC = null;
+        public string IpAddress_PLC = "192.168.1.100";
+        public int Port_PLC = 3000;
+        private Stream stream_PLC = null;
 
         //Intial connect Lights
         private TcpClient tcpClient_Lights = new TcpClient();
-        private string IpAddress_Lights;
-        private int Port_Lights;
-        Stream stream_Lights = null;
+        public string IpAddress_Lights = "192.168.1.10";
+        public int Port_Lights = 2000;
+        private Stream stream_Lights = null;
 
 
         public Main()
@@ -47,12 +47,34 @@ namespace Hitachi_Astemo
             setup_Camera.ShowDialog();
         }
 
+
+        //Setup PLC
         private void tsSetupPLC_Menu1_Click(object sender, System.EventArgs e)
         {
             Connect_PLC connect_PLC = new Connect_PLC();
+            connect_PLC.tbIpAddress.Text = "192.168.1.100";
+            connect_PLC.tbPort.Text = "3000";
+            connect_PLC.IPChanged += PlC_IP_Changed;
             connect_PLC.ShowDialog();
+        }
+        public string IpAddress { get; set; }
+        public int Port { get; set; }
+        private void PlC_IP_Changed(object sender, Tuple<string, int> inPort)
+        {
+            this.IpAddress = inPort.Item1;
+            this.Port = inPort.Item2;
+
+            //Cập nhật giao diện
+            IpAddress_PLC = inPort.Item1;
+            Port_PLC = inPort.Item2;
+
 
         }
+
+        //Setup Camera
+
+
+        //Setup Lights
     }
 
 }
