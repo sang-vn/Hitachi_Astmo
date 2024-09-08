@@ -16,10 +16,11 @@ namespace Hitachi_Astemo
 {
     public partial class Main : Form
     {
+
         public CogToolBlock toolBlock1 = new CogToolBlock();
         public CogToolBlock toolBlock2 = new CogToolBlock();
 
-        CogFrameGrabbers myframegrabbers;
+        CogFrameGrabbers myframegrabbers = new CogFrameGrabbers();
         ICogFrameGrabber myframegrabber;
         ICogAcqFifo myFifo;
 
@@ -56,33 +57,27 @@ namespace Hitachi_Astemo
             myframegrabber = myframegrabbers[0];
 
             CogStringCollection availableVideoFormats = myframegrabber.AvailableVideoFormats;
-            myFifo = myframegrabber.CreateAcqFifo(availableVideoFormats[0], Cognex.VisionPro.CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
+            myFifo = myframegrabber.CreateAcqFifo("Generic GigEVision (Mono)", CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
+
+            myFifo.OwnedExposureParams.Exposure = 15;
+            myFifo.Timeout = 3000;
+            myFifo.TimeoutEnabled = true;
+        }
+        private void CloseCamera()
+        {
+            if (myframegrabber != null)
+            {
+                myframegrabber = null;
+                myframegrabbers = null;
+            }
         }
 
         private ICogImage trigger()
         {
             ICogImage image = null;
-            int trigNum;
+            int trigNum = 0;
             image = myFifo.Acquire(out trigNum);
-
             return image;
-        }
-
-        private void bnTrigger_Click(object sender, System.EventArgs e)
-        {
-            //toolBlock1.Run();
-            //cogRecordDisplay1.InteractiveGraphics.Clear();
-            //cogRecordDisplay1.StaticGraphics.Clear();
-            //cogRecordDisplay1.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
-            trigger();
-        }
-
-        private void bnLive_Click(object sender, System.EventArgs e)
-        {
-            //toolBlock2.Run();
-            //cogRecordDisplay2.InteractiveGraphics.Clear();
-            //cogRecordDisplay2.StaticGraphics.Clear();
-            //cogRecordDisplay2.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
         }
 
         private void toolBlockEditToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -90,6 +85,23 @@ namespace Hitachi_Astemo
             ToolBlockEdit toolBlockEdit = new ToolBlockEdit();
             toolBlockEdit.Show();
         }
+        private void bnTrigger_Click_1(object sender, System.EventArgs e)
+        {
+            //toolBlock1.Run();
+            //cogRecordDisplay1.InteractiveGraphics.Clear();
+            //cogRecordDisplay1.StaticGraphics.Clear();
+            //cogRecordDisplay1.Record = toolBlock1.CreateLastRunRecord().SubRecords[0];
+
+            try 
+            { 
+                //cogDisplay1.Image = trigger();
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 
 }
