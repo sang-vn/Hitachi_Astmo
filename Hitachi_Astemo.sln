@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample VPro", "Sample VPro.csproj", "{E2800612-1632-423A-98A2-0555F7018282}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitachi_Astemo", "Hitachi_Astemo.csproj", "{E2800612-1632-423A-98A2-0555F7018282}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

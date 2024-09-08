@@ -1378,12 +1378,14 @@
             this.tsSetupCamera_Menu1.Name = "tsSetupCamera_Menu1";
             this.tsSetupCamera_Menu1.Size = new System.Drawing.Size(148, 30);
             this.tsSetupCamera_Menu1.Text = "Setup Camera";
+            this.tsSetupCamera_Menu1.Click += new System.EventHandler(this.tsSetupCamera_Menu1_Click);
             // 
             // tsSetupPLC_Menu1
             // 
             this.tsSetupPLC_Menu1.Name = "tsSetupPLC_Menu1";
             this.tsSetupPLC_Menu1.Size = new System.Drawing.Size(134, 30);
             this.tsSetupPLC_Menu1.Text = "Connect PLC";
+            this.tsSetupPLC_Menu1.Click += new System.EventHandler(this.tsSetupPLC_Menu1_Click);
             // 
             // tsSetupLights_Menu1
             // 

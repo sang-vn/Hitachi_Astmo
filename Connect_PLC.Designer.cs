@@ -353,8 +353,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbIpAddress;
-        private System.Windows.Forms.TextBox tbPort;
+        public System.Windows.Forms.TextBox tbIpAddress;
+        public System.Windows.Forms.TextBox tbPort;
         private System.Windows.Forms.Button bnPing;
         private System.Windows.Forms.Button bnConnect;
         private System.Windows.Forms.Label lbNotice;
