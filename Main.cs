@@ -41,9 +41,9 @@ namespace Hitachi_Astemo
         public Main()
         {
             InitializeComponent();
-            ConnectPLC();
+            //ConnectPLC();
             ConnectCamera();
-            ConnectLights();
+            //ConnectLights();
         }
 
         
@@ -103,7 +103,10 @@ namespace Hitachi_Astemo
         //Setup Camera
         private void ConnectCamera()
         {
-
+            myframegrabbers = new CogFrameGrabbers();
+            myframegrabber = myframegrabbers[0];
+            CogStringCollection availableFormatImages = myframegrabber.AvailableVideoFormats;
+            myFifo = myframegrabber.CreateAcqFifo(availableFormatImages[0], Cognex.VisionPro.CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
         }
 
         //Setup Lights
@@ -225,13 +228,31 @@ namespace Hitachi_Astemo
         private void Run()
         {
             //Turn on Lights
+
             //Wait 20ms, Acquisit Image
+
             //Write Trigger OK M1010
+
             //Run toolblock.FaceN
+
             //Lưu ảnh NG ra bên cạnh
+
             //Write OK/NG
+
         }
         #endregion
+
+        private void bnBegin_Click(object sender, System.EventArgs e)
+        {
+            int trigNum;
+            cogRecordDisplay1.Image = myFifo.Acquire(out trigNum);
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            myFifo = null;
+            myframegrabber = null;
+        }
     }
 
 }

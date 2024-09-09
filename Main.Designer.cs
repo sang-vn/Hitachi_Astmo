@@ -582,7 +582,7 @@
             this._txtTime_8.Location = new System.Drawing.Point(3, 0);
             this._txtTime_8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_8.Name = "_txtTime_8";
-            this._txtTime_8.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_8.Size = new System.Drawing.Size(190, 21);
             this._txtTime_8.TabIndex = 0;
             this._txtTime_8.Text = "Time 8";
             this._txtTime_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -659,7 +659,7 @@
             this._txtTime_7.Location = new System.Drawing.Point(3, 0);
             this._txtTime_7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_7.Name = "_txtTime_7";
-            this._txtTime_7.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_7.Size = new System.Drawing.Size(190, 21);
             this._txtTime_7.TabIndex = 0;
             this._txtTime_7.Text = "Time 7";
             this._txtTime_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -736,7 +736,7 @@
             this._txtTime_6.Location = new System.Drawing.Point(3, 0);
             this._txtTime_6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_6.Name = "_txtTime_6";
-            this._txtTime_6.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_6.Size = new System.Drawing.Size(190, 21);
             this._txtTime_6.TabIndex = 0;
             this._txtTime_6.Text = "Time 6";
             this._txtTime_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -813,7 +813,7 @@
             this._txtTime_5.Location = new System.Drawing.Point(3, 0);
             this._txtTime_5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_5.Name = "_txtTime_5";
-            this._txtTime_5.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_5.Size = new System.Drawing.Size(190, 21);
             this._txtTime_5.TabIndex = 0;
             this._txtTime_5.Text = "Time 5";
             this._txtTime_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -890,7 +890,7 @@
             this._txtTime_4.Location = new System.Drawing.Point(3, 0);
             this._txtTime_4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_4.Name = "_txtTime_4";
-            this._txtTime_4.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_4.Size = new System.Drawing.Size(190, 21);
             this._txtTime_4.TabIndex = 0;
             this._txtTime_4.Text = "Time 4";
             this._txtTime_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -967,7 +967,7 @@
             this._txtTime_3.Location = new System.Drawing.Point(3, 0);
             this._txtTime_3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_3.Name = "_txtTime_3";
-            this._txtTime_3.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_3.Size = new System.Drawing.Size(190, 21);
             this._txtTime_3.TabIndex = 0;
             this._txtTime_3.Text = "Time 3";
             this._txtTime_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1044,7 +1044,7 @@
             this._txtTime_2.Location = new System.Drawing.Point(3, 0);
             this._txtTime_2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_2.Name = "_txtTime_2";
-            this._txtTime_2.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_2.Size = new System.Drawing.Size(190, 21);
             this._txtTime_2.TabIndex = 0;
             this._txtTime_2.Text = "Time 2";
             this._txtTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1134,7 +1134,7 @@
             this._txtTime_1.Location = new System.Drawing.Point(3, 0);
             this._txtTime_1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this._txtTime_1.Name = "_txtTime_1";
-            this._txtTime_1.Size = new System.Drawing.Size(190, 24);
+            this._txtTime_1.Size = new System.Drawing.Size(190, 21);
             this._txtTime_1.TabIndex = 0;
             this._txtTime_1.Text = "Time 1";
             this._txtTime_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1243,7 +1243,7 @@
             this.tsLoadProgram_Menu2,
             this.tsEdit__Menu2});
             this.tsChuongTrinh_Menu1.Name = "tsChuongTrinh_Menu1";
-            this.tsChuongTrinh_Menu1.Size = new System.Drawing.Size(132, 30);
+            this.tsChuongTrinh_Menu1.Size = new System.Drawing.Size(107, 30);
             this.tsChuongTrinh_Menu1.Text = "PROGRAMS";
             // 
             // tsLoadProgram_Menu2
@@ -1256,7 +1256,7 @@
             this.tsPG5_Menu3,
             this.tsPG6_Menu3});
             this.tsLoadProgram_Menu2.Name = "tsLoadProgram_Menu2";
-            this.tsLoadProgram_Menu2.Size = new System.Drawing.Size(222, 32);
+            this.tsLoadProgram_Menu2.Size = new System.Drawing.Size(179, 26);
             this.tsLoadProgram_Menu2.Text = "Load Program";
             // 
             // tsPG1_Menu3
@@ -1265,19 +1265,19 @@
             this.tsPG1_Left_Menu4,
             this.tsPG1_Right_Menu4});
             this.tsPG1_Menu3.Name = "tsPG1_Menu3";
-            this.tsPG1_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG1_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG1_Menu3.Text = "Chương trình 1";
             // 
             // tsPG1_Left_Menu4
             // 
             this.tsPG1_Left_Menu4.Name = "tsPG1_Left_Menu4";
-            this.tsPG1_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG1_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG1_Left_Menu4.Text = "Trái";
             // 
             // tsPG1_Right_Menu4
             // 
             this.tsPG1_Right_Menu4.Name = "tsPG1_Right_Menu4";
-            this.tsPG1_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG1_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG1_Right_Menu4.Text = "Phải";
             // 
             // tsPG2_Menu3
@@ -1286,19 +1286,19 @@
             this.tsPG2_Left_Menu4,
             this.tsPG2_Right_Menu4});
             this.tsPG2_Menu3.Name = "tsPG2_Menu3";
-            this.tsPG2_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG2_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG2_Menu3.Text = "Chương trình 2";
             // 
             // tsPG2_Left_Menu4
             // 
             this.tsPG2_Left_Menu4.Name = "tsPG2_Left_Menu4";
-            this.tsPG2_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG2_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG2_Left_Menu4.Text = "Trái";
             // 
             // tsPG2_Right_Menu4
             // 
             this.tsPG2_Right_Menu4.Name = "tsPG2_Right_Menu4";
-            this.tsPG2_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG2_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG2_Right_Menu4.Text = "Phải";
             // 
             // tsPG3_Menu3
@@ -1307,19 +1307,19 @@
             this.tsPG3_Left_Menu4,
             this.tsPG3_Right_Menu4});
             this.tsPG3_Menu3.Name = "tsPG3_Menu3";
-            this.tsPG3_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG3_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG3_Menu3.Text = "Chương trình 3";
             // 
             // tsPG3_Left_Menu4
             // 
             this.tsPG3_Left_Menu4.Name = "tsPG3_Left_Menu4";
-            this.tsPG3_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG3_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG3_Left_Menu4.Text = "Trái";
             // 
             // tsPG3_Right_Menu4
             // 
             this.tsPG3_Right_Menu4.Name = "tsPG3_Right_Menu4";
-            this.tsPG3_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG3_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG3_Right_Menu4.Text = "Phải";
             // 
             // tsPG4_Menu3
@@ -1328,19 +1328,19 @@
             this.tsPG4_Left_Menu4,
             this.tsPG4_Right_Menu4});
             this.tsPG4_Menu3.Name = "tsPG4_Menu3";
-            this.tsPG4_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG4_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG4_Menu3.Text = "Chương trình 4";
             // 
             // tsPG4_Left_Menu4
             // 
             this.tsPG4_Left_Menu4.Name = "tsPG4_Left_Menu4";
-            this.tsPG4_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG4_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG4_Left_Menu4.Text = "Trái";
             // 
             // tsPG4_Right_Menu4
             // 
             this.tsPG4_Right_Menu4.Name = "tsPG4_Right_Menu4";
-            this.tsPG4_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG4_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG4_Right_Menu4.Text = "Phải";
             // 
             // tsPG5_Menu3
@@ -1349,19 +1349,19 @@
             this.tsPG5_Left_Menu4,
             this.tsPG5_Right_Menu4});
             this.tsPG5_Menu3.Name = "tsPG5_Menu3";
-            this.tsPG5_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG5_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG5_Menu3.Text = "Chương trình 5";
             // 
             // tsPG5_Left_Menu4
             // 
             this.tsPG5_Left_Menu4.Name = "tsPG5_Left_Menu4";
-            this.tsPG5_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG5_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG5_Left_Menu4.Text = "Trái";
             // 
             // tsPG5_Right_Menu4
             // 
             this.tsPG5_Right_Menu4.Name = "tsPG5_Right_Menu4";
-            this.tsPG5_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG5_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG5_Right_Menu4.Text = "Phải";
             // 
             // tsPG6_Menu3
@@ -1370,57 +1370,57 @@
             this.tsPG6_Left_Menu4,
             this.tsPG6_Right_Menu4});
             this.tsPG6_Menu3.Name = "tsPG6_Menu3";
-            this.tsPG6_Menu3.Size = new System.Drawing.Size(230, 32);
+            this.tsPG6_Menu3.Size = new System.Drawing.Size(186, 26);
             this.tsPG6_Menu3.Text = "Chương trình 6";
             // 
             // tsPG6_Left_Menu4
             // 
             this.tsPG6_Left_Menu4.Name = "tsPG6_Left_Menu4";
-            this.tsPG6_Left_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG6_Left_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG6_Left_Menu4.Text = "Trái";
             // 
             // tsPG6_Right_Menu4
             // 
             this.tsPG6_Right_Menu4.Name = "tsPG6_Right_Menu4";
-            this.tsPG6_Right_Menu4.Size = new System.Drawing.Size(135, 32);
+            this.tsPG6_Right_Menu4.Size = new System.Drawing.Size(110, 26);
             this.tsPG6_Right_Menu4.Text = "Phải";
             // 
             // tsEdit__Menu2
             // 
             this.tsEdit__Menu2.Name = "tsEdit__Menu2";
-            this.tsEdit__Menu2.Size = new System.Drawing.Size(222, 32);
+            this.tsEdit__Menu2.Size = new System.Drawing.Size(179, 26);
             this.tsEdit__Menu2.Text = "Edit Programs";
             // 
             // tsSetupCamera_Menu1
             // 
             this.tsSetupCamera_Menu1.Name = "tsSetupCamera_Menu1";
-            this.tsSetupCamera_Menu1.Size = new System.Drawing.Size(148, 30);
+            this.tsSetupCamera_Menu1.Size = new System.Drawing.Size(120, 30);
             this.tsSetupCamera_Menu1.Text = "Setup Camera";
             this.tsSetupCamera_Menu1.Click += new System.EventHandler(this.tsSetupCamera_Menu1_Click);
             // 
             // tsSetupPLC_Menu1
             // 
             this.tsSetupPLC_Menu1.Name = "tsSetupPLC_Menu1";
-            this.tsSetupPLC_Menu1.Size = new System.Drawing.Size(134, 30);
+            this.tsSetupPLC_Menu1.Size = new System.Drawing.Size(109, 30);
             this.tsSetupPLC_Menu1.Text = "Connect PLC";
             this.tsSetupPLC_Menu1.Click += new System.EventHandler(this.tsSetupPLC_Menu1_Click);
             // 
             // tsSetupLights_Menu1
             // 
             this.tsSetupLights_Menu1.Name = "tsSetupLights_Menu1";
-            this.tsSetupLights_Menu1.Size = new System.Drawing.Size(155, 30);
+            this.tsSetupLights_Menu1.Size = new System.Drawing.Size(125, 30);
             this.tsSetupLights_Menu1.Text = "Connect Lights";
             // 
             // tsLogs_Menu1
             // 
             this.tsLogs_Menu1.Name = "tsLogs_Menu1";
-            this.tsLogs_Menu1.Size = new System.Drawing.Size(67, 30);
+            this.tsLogs_Menu1.Size = new System.Drawing.Size(55, 30);
             this.tsLogs_Menu1.Text = "Logs";
             // 
             // tsHelps_Menu1
             // 
             this.tsHelps_Menu1.Name = "tsHelps_Menu1";
-            this.tsHelps_Menu1.Size = new System.Drawing.Size(75, 30);
+            this.tsHelps_Menu1.Size = new System.Drawing.Size(61, 30);
             this.tsHelps_Menu1.Text = "Helps";
             // 
             // bnBegin
@@ -1436,6 +1436,7 @@
             this.bnBegin.Text = "BEGIN";
             this.bnBegin.UseVisualStyleBackColor = false;
             this.bnBegin.UseWaitCursor = true;
+            this.bnBegin.Click += new System.EventHandler(this.bnBegin_Click);
             // 
             // bnEnd
             // 
@@ -1454,7 +1455,7 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1540, 845);
@@ -1467,6 +1468,7 @@
             this.Text = "HITACHI ASTEMO INSPECTION SYSTEM";
             this.UseWaitCursor = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
