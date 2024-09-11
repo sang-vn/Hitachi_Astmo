@@ -41,23 +41,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.bnHeartBits = new System.Windows.Forms.Button();
+            this.bnReadModel = new System.Windows.Forms.Button();
+            this.bnWriteResultNG = new System.Windows.Forms.Button();
+            this.bnWriteResultOK = new System.Windows.Forms.Button();
+            this.bnAcqNG = new System.Windows.Forms.Button();
+            this.bnWriteAcqOK = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bnReadTrigger = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbWriteMode = new System.Windows.Forms.CheckBox();
             this.tbNumRegisterRead = new System.Windows.Forms.TextBox();
@@ -177,23 +172,18 @@
             // 
             // GroupBox1
             // 
-            this.GroupBox1.Controls.Add(this.button12);
-            this.GroupBox1.Controls.Add(this.button11);
-            this.GroupBox1.Controls.Add(this.button9);
-            this.GroupBox1.Controls.Add(this.button10);
-            this.GroupBox1.Controls.Add(this.button5);
-            this.GroupBox1.Controls.Add(this.button6);
-            this.GroupBox1.Controls.Add(this.button7);
-            this.GroupBox1.Controls.Add(this.button8);
+            this.GroupBox1.Controls.Add(this.bnHeartBits);
+            this.GroupBox1.Controls.Add(this.bnReadModel);
+            this.GroupBox1.Controls.Add(this.bnWriteResultNG);
+            this.GroupBox1.Controls.Add(this.bnWriteResultOK);
+            this.GroupBox1.Controls.Add(this.bnAcqNG);
+            this.GroupBox1.Controls.Add(this.bnWriteAcqOK);
             this.GroupBox1.Controls.Add(this.label12);
             this.GroupBox1.Controls.Add(this.label11);
             this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.label9);
             this.GroupBox1.Controls.Add(this.label8);
-            this.GroupBox1.Controls.Add(this.button4);
-            this.GroupBox1.Controls.Add(this.button3);
-            this.GroupBox1.Controls.Add(this.button2);
-            this.GroupBox1.Controls.Add(this.button1);
+            this.GroupBox1.Controls.Add(this.bnReadTrigger);
             this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.GroupBox1.Location = new System.Drawing.Point(18, 317);
             this.GroupBox1.Name = "GroupBox1";
@@ -202,85 +192,72 @@
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Test Data";
             // 
-            // button12
+            // bnHeartBits
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(214, 144);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 25);
-            this.button12.TabIndex = 22;
-            this.button12.Text = "M1030";
-            this.button12.UseVisualStyleBackColor = true;
+            this.bnHeartBits.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnHeartBits.Location = new System.Drawing.Point(214, 144);
+            this.bnHeartBits.Name = "bnHeartBits";
+            this.bnHeartBits.Size = new System.Drawing.Size(75, 25);
+            this.bnHeartBits.TabIndex = 22;
+            this.bnHeartBits.Text = "M1030";
+            this.bnHeartBits.UseVisualStyleBackColor = true;
+            this.bnHeartBits.Click += new System.EventHandler(this.bnHeartBits_Click);
             // 
-            // button11
+            // bnReadModel
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(214, 116);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 25);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "D1000";
-            this.button11.UseVisualStyleBackColor = true;
+            this.bnReadModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnReadModel.Location = new System.Drawing.Point(214, 116);
+            this.bnReadModel.Name = "bnReadModel";
+            this.bnReadModel.Size = new System.Drawing.Size(75, 25);
+            this.bnReadModel.TabIndex = 21;
+            this.bnReadModel.Text = "D1000";
+            this.bnReadModel.UseVisualStyleBackColor = true;
+            this.bnReadModel.Click += new System.EventHandler(this.bnReadModel_Click);
             // 
-            // button9
+            // bnWriteResultNG
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(304, 88);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 25);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "M1021";
-            this.button9.UseVisualStyleBackColor = true;
+            this.bnWriteResultNG.AccessibleDescription = "";
+            this.bnWriteResultNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnWriteResultNG.Location = new System.Drawing.Point(304, 88);
+            this.bnWriteResultNG.Name = "bnWriteResultNG";
+            this.bnWriteResultNG.Size = new System.Drawing.Size(75, 25);
+            this.bnWriteResultNG.TabIndex = 20;
+            this.bnWriteResultNG.Text = "M1021";
+            this.bnWriteResultNG.UseVisualStyleBackColor = true;
+            this.bnWriteResultNG.Click += new System.EventHandler(this.bnWriteResultNG_Click);
             // 
-            // button10
+            // bnWriteResultOK
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(214, 88);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 25);
-            this.button10.TabIndex = 19;
-            this.button10.Text = "M1020";
-            this.button10.UseVisualStyleBackColor = true;
+            this.bnWriteResultOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnWriteResultOK.Location = new System.Drawing.Point(214, 88);
+            this.bnWriteResultOK.Name = "bnWriteResultOK";
+            this.bnWriteResultOK.Size = new System.Drawing.Size(75, 25);
+            this.bnWriteResultOK.TabIndex = 19;
+            this.bnWriteResultOK.Text = "M1020";
+            this.bnWriteResultOK.UseVisualStyleBackColor = true;
+            this.bnWriteResultOK.Click += new System.EventHandler(this.bnWriteResultOK_Click);
             // 
-            // button5
+            // bnAcqNG
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(484, 60);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 25);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "M1013";
-            this.button5.UseVisualStyleBackColor = true;
+            this.bnAcqNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnAcqNG.Location = new System.Drawing.Point(304, 60);
+            this.bnAcqNG.Name = "bnAcqNG";
+            this.bnAcqNG.Size = new System.Drawing.Size(75, 25);
+            this.bnAcqNG.TabIndex = 16;
+            this.bnAcqNG.Text = "M1011";
+            this.bnAcqNG.UseVisualStyleBackColor = true;
+            this.bnAcqNG.Click += new System.EventHandler(this.bnAcqNG_Click);
             // 
-            // button6
+            // bnWriteAcqOK
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(394, 60);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 25);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "M1012";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(304, 60);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 25);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "M1011";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(214, 60);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 25);
-            this.button8.TabIndex = 15;
-            this.button8.Text = "M1010";
-            this.button8.UseVisualStyleBackColor = true;
+            this.bnWriteAcqOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnWriteAcqOK.Location = new System.Drawing.Point(214, 60);
+            this.bnWriteAcqOK.Name = "bnWriteAcqOK";
+            this.bnWriteAcqOK.Size = new System.Drawing.Size(75, 25);
+            this.bnWriteAcqOK.TabIndex = 15;
+            this.bnWriteAcqOK.Text = "M1010";
+            this.bnWriteAcqOK.UseVisualStyleBackColor = true;
+            this.bnWriteAcqOK.Click += new System.EventHandler(this.bnWriteAcqOK_Click);
             // 
             // label12
             // 
@@ -288,7 +265,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(35, 144);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 25);
+            this.label12.Size = new System.Drawing.Size(133, 25);
             this.label12.TabIndex = 14;
             this.label12.Text = "Heart Bits";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,7 +276,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(35, 116);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 25);
+            this.label11.Size = new System.Drawing.Size(133, 25);
             this.label11.TabIndex = 13;
             this.label11.Text = "Read Model";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -310,7 +287,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(35, 88);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 25);
+            this.label10.Size = new System.Drawing.Size(133, 25);
             this.label10.TabIndex = 10;
             this.label10.Text = "Write Vision Result";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -321,9 +298,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(35, 60);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 25);
+            this.label9.Size = new System.Drawing.Size(133, 25);
             this.label9.TabIndex = 5;
-            this.label9.Text = "Write Trigger OK";
+            this.label9.Text = "Write Acq OK/NG";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -332,50 +309,21 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(35, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 25);
+            this.label8.Size = new System.Drawing.Size(133, 25);
             this.label8.TabIndex = 4;
             this.label8.Text = "Read Trigger";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button4
+            // bnReadTrigger
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(484, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 25);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "M1003";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(394, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "M1002";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(304, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "M1001";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(214, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "M1000";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bnReadTrigger.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnReadTrigger.Location = new System.Drawing.Point(214, 32);
+            this.bnReadTrigger.Name = "bnReadTrigger";
+            this.bnReadTrigger.Size = new System.Drawing.Size(75, 25);
+            this.bnReadTrigger.TabIndex = 0;
+            this.bnReadTrigger.Text = "M1000";
+            this.bnReadTrigger.UseVisualStyleBackColor = true;
+            this.bnReadTrigger.Click += new System.EventHandler(this.bnReadTrigger_Click);
             // 
             // groupBox2
             // 
@@ -551,20 +499,15 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button bnReadTrigger;
+        private System.Windows.Forms.Button bnHeartBits;
+        private System.Windows.Forms.Button bnReadModel;
+        private System.Windows.Forms.Button bnWriteResultNG;
+        private System.Windows.Forms.Button bnWriteResultOK;
+        private System.Windows.Forms.Button bnWriteAcqOK;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button bnSave;
+        private System.Windows.Forms.Button bnAcqNG;
     }
 }

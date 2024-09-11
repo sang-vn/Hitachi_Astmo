@@ -91,59 +91,6 @@ namespace Hitachi_Astemo
             tbSentData.Text = dataSend;
         }
 
-        private List<byte> ByteArray()
-        {
-            List<byte> bytes = new List<byte>();
-
-            //Subheader, Request destination Network No, Request destination Station No
-            //Request detination Module IO No, Request destination multidrop station No
-            List<byte> headByte = new List<byte> { 0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00 };
-
-            //Request data length
-            List<byte> lengthYregister = new List<byte> { 0x0c, 0x00 };
-
-            //Monitoring Timer
-            List<byte> timer = new List<byte> { 0x00, 0x00 };
-
-            //Comand 
-            List<byte> ReadComand = new List<byte> { 0x01, 0x04 };
-            List<byte> WriteComand = new List<byte> { 0x01, 0x14 };
-            List<byte> Comand = new List<byte> { 0x01, 0x14 };
-
-            //Subcomand
-            List<byte> SubComand = new List<byte> { 0x0c, 0x00 };
-
-            //Device Code
-            byte Register = 0xa8;
-            switch(cbbRegister.SelectedText)
-            {
-                case "Y": 
-                    Register = 0x9d;
-                    break;
-                case "D":
-                    Register = 0xa8;
-                    break;
-                case "M":
-                    Register = 0x80;
-                    break;
-                case "T":
-                    Register = 0x90;
-                    break;
-                case "C":
-                    Register = 0xa0;
-                    break;
-                case "X":
-                    Register = 0x8d;
-                    break;
-                default: 
-                    break;
-            }
-
-            //
-
-            return bytes;
-        }
-
         private void Connect_PLC_FormClosing(object sender, FormClosingEventArgs e)
         {
             //stream.Close();
@@ -211,5 +158,63 @@ namespace Hitachi_Astemo
         {
             IPChanged?.Invoke(this, new Tuple<string, int>(tbIpAddress.Text, int.Parse(tbPort.Text)));
         }
+
+        private void bnReadTrigger_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnWriteAcqOK_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+            string dataSend = string.Join(", ", request.Select(b => "0x" + b.ToString("X2")));
+            tbSentData.Text = dataSend;
+        }
+
+        private void bnAcqNG_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xf3, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+            string dataSend = string.Join(", ", request.Select(b => "0x" + b.ToString("X2")));
+            tbSentData.Text = dataSend;
+        }
+
+        private void bnWriteResultOK_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xfc, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+            string dataSend = string.Join(", ", request.Select(b => "0x" + b.ToString("X2")));
+            tbSentData.Text = dataSend;
+        }
+
+
+        private void bnWriteResultNG_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xfd, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+            string dataSend = string.Join(", ", request.Select(b => "0x" + b.ToString("X2")));
+            tbSentData.Text = dataSend;
+        }
+
+
+        private void bnReadModel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnHeartBits_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

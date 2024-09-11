@@ -47,7 +47,7 @@ namespace Hitachi_Astemo
 
         private void Main_Load(object sender, EventArgs e)
         {
-            IntialPLC();
+            //IntialPLC();
             //IntialCamera();
             //IntialLights();
         }
@@ -74,8 +74,6 @@ namespace Hitachi_Astemo
                 MessageBox.Show("Disconnected PLC");
             }
         }
-
-
 
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
