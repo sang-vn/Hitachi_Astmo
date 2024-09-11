@@ -12,6 +12,8 @@ using System.IO;
 using Cognex.VisionPro;
 using System.Security.Cryptography;
 using System.Net.Sockets;
+using CSharp_OPTControllerAPI;
+using System.Windows.Media.Media3D;
 
 namespace Hitachi_Astemo
 {
@@ -32,18 +34,17 @@ namespace Hitachi_Astemo
         private Stream stream_PLC = null;
 
         //Intial connect Lights
+        public OPTControllerAPI Light = null;
         private TcpClient tcpClient_Lights = new TcpClient();
-        public string IpAddress_Lights = "192.168.1.10";
-        public int Port_Lights = 2000;
-        private Stream stream_Lights = null;
-
+        public string IpAddress_Lights = "192.168.1.16";
+        public int Port_Lights = 3000;
 
         public Main()
         {
             InitializeComponent();
             //ConnectPLC();
-            ConnectCamera();
-            //ConnectLights();
+            //ConnectCamera();
+            ConnectLights();
         }
 
         
@@ -112,19 +113,19 @@ namespace Hitachi_Astemo
         //Setup Lights
         private void ConnectLights()
         {
+            long lRet = -1;
+            Light = new OPTControllerAPI();
             try
             {
-                tcpClient_Lights = new TcpClient(IpAddress_Lights, Port_Lights);
-                stream_Lights = tcpClient_Lights.GetStream();
-                if (tcpClient_Lights.Connected)
+                lRet = Light.CreateEthernetConnectionByIP(IpAddress_Lights);
+                if (0 != lRet)
                 {
-                    lbLightsConnected.Text = "Connected";
-                    lbLightsConnected.ForeColor = Color.Green;
+                    lbLightsConnected.Text = "Disconnected";
+                    return;
                 }
                 else
                 {
-                    lbLightsConnected.Text = "Disconnected";
-                    lbLightsConnected.ForeColor = Color.Red;
+                    lbLightsConnected.Text = "Connected";
                 }
             }
 
@@ -228,7 +229,7 @@ namespace Hitachi_Astemo
         private void Run()
         {
             //Turn on Lights
-
+            
             //Wait 20ms, Acquisit Image
 
             //Write Trigger OK M1010
