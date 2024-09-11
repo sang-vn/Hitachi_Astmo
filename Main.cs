@@ -15,6 +15,7 @@ using System.Net.Sockets;
 using CSharp_OPTControllerAPI;
 using System.Windows.Media.Media3D;
 using System.Threading;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Hitachi_Astemo
 {
@@ -32,13 +33,17 @@ namespace Hitachi_Astemo
         private TcpClient tcpClient_PLC = new TcpClient();
         internal string IpAddress_PLC = "192.168.1.100";
         internal int Port_PLC = 3000;
-        private Stream stream_PLC = null;
+        private Stream stream = null;
 
         //Intial connect Lights
         public OPTControllerAPI Light = null;
         private TcpClient tcpClient_Lights = new TcpClient();
         private string IpAddress_Lights = "192.168.1.16";
         //public int Port_Lights = 3000;
+
+        private string trigger_signal;
+        private int model;
+
 
         public Main()
         {
@@ -115,7 +120,7 @@ namespace Hitachi_Astemo
             try
             {
                 tcpClient_PLC = new TcpClient(IpAddress_PLC, Port_PLC);
-                stream_PLC = tcpClient_PLC.GetStream();
+                stream = tcpClient_PLC.GetStream();
                 if (tcpClient_PLC.Connected)
                 {
                     lbPLCConnected.Text = "Connected";
@@ -283,7 +288,87 @@ namespace Hitachi_Astemo
 
         }
 
-       
+        private void bnEnd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Edit read/write register PLC
+        private void bnReadTrigger_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
+             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00};
+            stream.Write(request, 0, request.Length);
+            byte[] response = new byte[12];
+            stream.Read(response, 0, response.Length);
+            if (response[9] == 0 && response[10] == 0)  //no error
+            {
+                trigger_signal = response[11].ToString("X2");
+            }
+        }
+
+        private void bnWriteAcqOK_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+        }
+
+        private void bnAcqNG_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xf3, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+        }
+
+        private void bnWriteResultOK_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xfc, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+        }
+
+
+        private void bnWriteResultNG_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xfd, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+
+            stream.Write(request, 0, request.Length);
+        }
+
+
+        private void bnReadModel_Click(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
+             0x00, 0x01, 0x04, 0x00, 0x00, 0xe8, 0x03, 0x00, 0xa8, 0x01, 0x00};
+            stream.Write(request, 0, request.Length);
+            byte[] response = new byte[13];
+            stream.Read(response, 0, response.Length);
+            if (response[9] == 0 && response[10] == 0)  //no error
+            {
+                byte[] d1000 = { response[11], response[12] };
+                model = BitConverter.ToInt16(d1000, 0);
+            }
+        }
+
+        private void HeartBits_1(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x10};
+            stream.Write(request, 0, request.Length);
+        }
+
+        private void HeartBits_0(object sender, EventArgs e)
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x00};
+            stream.Write(request, 0, request.Length);
+        }
+        #endregion
     }
 
 }

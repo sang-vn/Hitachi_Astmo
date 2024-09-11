@@ -1452,6 +1452,7 @@
             this.bnEnd.Text = "END";
             this.bnEnd.UseVisualStyleBackColor = false;
             this.bnEnd.UseWaitCursor = true;
+            this.bnEnd.Click += new System.EventHandler(this.bnEnd_Click);
             // 
             // Main
             // 
