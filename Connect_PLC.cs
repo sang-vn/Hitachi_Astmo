@@ -20,14 +20,16 @@ namespace Hitachi_Astemo
     public partial class Connect_PLC : Form
     {
         public TcpClient tcpClient = new TcpClient();
-        public string IpAddress;
-        public int Port;
+        private string IpAddress;
+        private int Port;
         Stream stream = null;
+        private Main mainForm;
         
         
-        public Connect_PLC()
+        public Connect_PLC(Main main)
         {
             InitializeComponent();
+            mainForm = main;
             this.Load += new EventHandler(Connect_PLC_Load);
         }
 
@@ -155,6 +157,9 @@ namespace Hitachi_Astemo
             cbbRegister.Enabled = false;
             tbBeginRegisterRead.Enabled = false;
             tbNumRegisterRead.Enabled = false;
+
+            IpAddress = mainForm.IpAddress_PLC;
+            Port = mainForm.Port_PLC;
         }
 
         private void cbReadMode_CheckedChanged(object sender, EventArgs e)
@@ -193,24 +198,18 @@ namespace Hitachi_Astemo
             }
         }
 
-        public string IP_PLC
-        {
-            get { return tbIpAddress.Text; }
-            set { tbIpAddress.Text = value; }
-        }
 
-        public int Port_PLC
-        {
-            get { return int.Parse(tbPort.Text); }
-            set { tbIpAddress.Text = value.ToString(); }
-        }
 
         public event EventHandler<Tuple<string, int>> IPChanged;
 
+        //private void tbIpAddress_TextChanged(object sender, EventArgs e)
+        //{
+        //    IPChanged?.Invoke(this, new Tuple<string, int>(tbIpAddress.Text,int.Parse(tbPort.Text)));
+        //}
+
         private void bnSave_Click(object sender, EventArgs e)
         {
-            IPChanged?.Invoke(this, new Tuple<string, int> (IP_PLC, Port_PLC));
+            IPChanged?.Invoke(this, new Tuple<string, int>(tbIpAddress.Text, int.Parse(tbPort.Text)));
         }
-        
     }
 }

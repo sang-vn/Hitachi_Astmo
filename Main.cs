@@ -30,8 +30,8 @@ namespace Hitachi_Astemo
 
         //Intial connect PLC 
         private TcpClient tcpClient_PLC = new TcpClient();
-        public string IpAddress_PLC = "192.168.1.100";
-        public int Port_PLC = 3000;
+        internal string IpAddress_PLC = "192.168.1.100";
+        internal int Port_PLC = 3000;
         private Stream stream_PLC = null;
 
         //Intial connect Lights
@@ -43,12 +43,32 @@ namespace Hitachi_Astemo
         public Main()
         {
             InitializeComponent();
-            //ConnectPLC();
-            //ConnectCamera();
-            ConnectLights();
         }
 
-        
+        private void Main_Load(object sender, EventArgs e)
+        {
+            //IntialPLC();
+            //IntialCamera();
+            IntialLights();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Disconnect Camera
+            myFifo = null;
+            myframegrabber = null;
+
+            //Disconnect Lights
+            long lRet = -1;
+            lRet = Light.DestroyEthernetConnect();
+            if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
+            else MessageBox.Show("Success to disconnect Lights succeed");
+
+            //Disconnect PLC
+            tcpClient_PLC.Dispose();
+        }
+
+
 
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
@@ -60,26 +80,33 @@ namespace Hitachi_Astemo
         //Setup PLC
         private void tsSetupPLC_Menu1_Click(object sender, System.EventArgs e)
         {
-            Connect_PLC connect_PLC = new Connect_PLC();
+            Connect_PLC connect_PLC = new Connect_PLC(this);
             connect_PLC.tbIpAddress.Text = "192.168.1.100";
             connect_PLC.tbPort.Text = "3000";
-            connect_PLC.IPChanged += PlC_IP_Changed;
+            connect_PLC.IPChanged += PLC_IP_Changed;
             connect_PLC.ShowDialog();
         }
-        public string IpAddress { get; set; }
-        public int Port { get; set; }
-        private void PlC_IP_Changed(object sender, Tuple<string, int> inPort)
+        
+        private void PLC_IP_Changed(object sender, Tuple<string, int> inIP)
         {
-            this.IpAddress = inPort.Item1;
-            this.Port = inPort.Item2;
+            this.IpAddress_PLC = inIP.Item1;
+            this.Port_PLC = inIP.Item2;
 
-            //Cập nhật giao diện
-            IpAddress_PLC = inPort.Item1;
-            Port_PLC = inPort.Item2;
+
+            this.bnBegin.Text = Convert.ToString(IpAddress_PLC);
+            this.bnEnd.Text = Convert.ToString(Port_PLC);
+
+            //IntialPLC();
         }
 
-        private void ConnectPLC()
+        //Connect PLC
+        private void IntialPLC()
         {
+            if(tcpClient_PLC != null)
+            {
+                if (tcpClient_PLC.Connected) tcpClient_PLC.Dispose();
+                tcpClient_PLC = null;
+            }
             try
             {
                 tcpClient_PLC = new TcpClient(IpAddress_PLC, Port_PLC);
@@ -88,11 +115,13 @@ namespace Hitachi_Astemo
                 {
                     lbPLCConnected.Text = "Connected";
                     lbPLCConnected.ForeColor = Color.Green;
+                    MessageBox.Show("Connected PLC");
                 }
                 else
                 {
                     lbPLCConnected.Text = "Disconnected";
                     lbPLCConnected.ForeColor = Color.Red;
+                    MessageBox.Show("Disconnected PLC");
                 }
             }
 
@@ -102,8 +131,8 @@ namespace Hitachi_Astemo
             }
         }
 
-        //Setup Camera
-        private void ConnectCamera()
+        //Connect Camera
+        private void IntialCamera()
         {
             myframegrabbers = new CogFrameGrabbers();
             myframegrabber = myframegrabbers[0];
@@ -111,8 +140,8 @@ namespace Hitachi_Astemo
             myFifo = myframegrabber.CreateAcqFifo(availableFormatImages[0], Cognex.VisionPro.CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
         }
 
-        //Setup Lights
-        private void ConnectLights()
+        //Connect Lights
+        private void IntialLights()
         {
             long lRet = -1;
             Light = new OPTControllerAPI();
@@ -246,19 +275,10 @@ namespace Hitachi_Astemo
 
         private void bnBegin_Click(object sender, System.EventArgs e)
         {
-            
 
         }
 
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            myFifo = null;
-            myframegrabber = null;
-            long lRet = -1;
-            lRet = Light.DestroyEthernetConnect();
-            if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
-            else MessageBox.Show("Success to disconnect Lights succeed");
-        }
+       
     }
 
 }
