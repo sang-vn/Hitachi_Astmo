@@ -38,7 +38,7 @@ namespace Hitachi_Astemo
         public OPTControllerAPI Light = null;
         private TcpClient tcpClient_Lights = new TcpClient();
         private string IpAddress_Lights = "192.168.1.16";
-        public int Port_Lights = 3000;
+        //public int Port_Lights = 3000;
 
         public Main()
         {
@@ -47,25 +47,32 @@ namespace Hitachi_Astemo
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //IntialPLC();
+            IntialPLC();
             //IntialCamera();
-            IntialLights();
+            //IntialLights();
         }
+
+
+
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Disconnect Camera
-            myFifo = null;
-            myframegrabber = null;
+            ////Disconnect Camera
+            //myFifo = null;
+            //myframegrabber = null;
 
-            //Disconnect Lights
-            long lRet = -1;
-            lRet = Light.DestroyEthernetConnect();
-            if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
-            else MessageBox.Show("Success to disconnect Lights succeed");
+            ////Disconnect Lights
+            //long lRet = -1;
+            //lRet = Light.DestroyEthernetConnect();
+            //if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
+            //else MessageBox.Show("Success to disconnect Lights succeed");
 
             //Disconnect PLC
-            tcpClient_PLC.Dispose();
+            if (tcpClient_PLC != null)
+            {
+                tcpClient_PLC.Dispose();
+                MessageBox.Show("Disconnected PLC");
+            }
         }
 
 
@@ -96,7 +103,8 @@ namespace Hitachi_Astemo
             this.bnBegin.Text = Convert.ToString(IpAddress_PLC);
             this.bnEnd.Text = Convert.ToString(Port_PLC);
 
-            //IntialPLC();
+            if(tcpClient_PLC != null) tcpClient_PLC.Dispose();
+            IntialPLC();
         }
 
         //Connect PLC
@@ -104,8 +112,7 @@ namespace Hitachi_Astemo
         {
             if(tcpClient_PLC != null)
             {
-                if (tcpClient_PLC.Connected) tcpClient_PLC.Dispose();
-                tcpClient_PLC = null;
+                tcpClient_PLC.Dispose();
             }
             try
             {
