@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Cognex.Vision;
+//using Cognex.Vision;
 using Cognex.VisionPro.ToolBlock;
 using System.IO;
 using Cognex.VisionPro;
@@ -14,6 +14,7 @@ using System.Security.Cryptography;
 using System.Net.Sockets;
 using CSharp_OPTControllerAPI;
 using System.Windows.Media.Media3D;
+using System.Threading;
 
 namespace Hitachi_Astemo
 {
@@ -36,7 +37,7 @@ namespace Hitachi_Astemo
         //Intial connect Lights
         public OPTControllerAPI Light = null;
         private TcpClient tcpClient_Lights = new TcpClient();
-        public string IpAddress_Lights = "192.168.1.16";
+        private string IpAddress_Lights = "192.168.1.16";
         public int Port_Lights = 3000;
 
         public Main()
@@ -245,14 +246,18 @@ namespace Hitachi_Astemo
 
         private void bnBegin_Click(object sender, System.EventArgs e)
         {
-            int trigNum;
-            cogRecordDisplay1.Image = myFifo.Acquire(out trigNum);
+            
+
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             myFifo = null;
             myframegrabber = null;
+            long lRet = -1;
+            lRet = Light.DestroyEthernetConnect();
+            if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
+            else MessageBox.Show("Success to disconnect Lights succeed");
         }
     }
 

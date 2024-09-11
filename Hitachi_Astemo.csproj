@@ -60,9 +60,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cognex.Vision.Core.Net">
-      <HintPath>..\..\..\..\..\..\Program Files\Cognex\VisionPro\bin\Cognex.Vision.Core.Net.dll</HintPath>
-    </Reference>
     <Reference Include="Cognex.VisionPro, Version=85.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.Controls, Version=85.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.Core, Version=85.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
@@ -198,7 +195,6 @@
     <Content Include="Icon\VNAS_icon.ico" />
     <Content Include="Images\mạch tổng.jpg" />
     <Content Include="Images\ảnh phong cảnh.jfif" />
-    <Content Include="OPTController.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
