@@ -161,6 +161,15 @@ namespace Hitachi_Astemo
 
         private void bnReadTrigger_Click(object sender, EventArgs e)
         {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
+             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00};
+            stream.Write(request, 0, request.Length);
+            byte[] response = new byte[12];
+            stream.Read(response, 0, response.Length);
+            if (response[9] == 0 && response[10]==0)  //no error
+            {
+                tbReceivedData.Text = response[11].ToString("X1");
+            }
 
         }
 
