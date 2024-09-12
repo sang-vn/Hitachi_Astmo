@@ -45,7 +45,7 @@
             this.bnReadModel = new System.Windows.Forms.Button();
             this.bnWriteResultNG = new System.Windows.Forms.Button();
             this.bnWriteResultOK = new System.Windows.Forms.Button();
-            this.bnAcqNG = new System.Windows.Forms.Button();
+            this.bnWriteAcqNG = new System.Windows.Forms.Button();
             this.bnWriteAcqOK = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -176,7 +176,7 @@
             this.GroupBox1.Controls.Add(this.bnReadModel);
             this.GroupBox1.Controls.Add(this.bnWriteResultNG);
             this.GroupBox1.Controls.Add(this.bnWriteResultOK);
-            this.GroupBox1.Controls.Add(this.bnAcqNG);
+            this.GroupBox1.Controls.Add(this.bnWriteAcqNG);
             this.GroupBox1.Controls.Add(this.bnWriteAcqOK);
             this.GroupBox1.Controls.Add(this.label12);
             this.GroupBox1.Controls.Add(this.label11);
@@ -237,16 +237,16 @@
             this.bnWriteResultOK.UseVisualStyleBackColor = true;
             this.bnWriteResultOK.Click += new System.EventHandler(this.bnWriteResultOK_Click);
             // 
-            // bnAcqNG
+            // bnWriteAcqNG
             // 
-            this.bnAcqNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnAcqNG.Location = new System.Drawing.Point(304, 60);
-            this.bnAcqNG.Name = "bnAcqNG";
-            this.bnAcqNG.Size = new System.Drawing.Size(75, 25);
-            this.bnAcqNG.TabIndex = 16;
-            this.bnAcqNG.Text = "M1011";
-            this.bnAcqNG.UseVisualStyleBackColor = true;
-            this.bnAcqNG.Click += new System.EventHandler(this.bnAcqNG_Click);
+            this.bnWriteAcqNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnWriteAcqNG.Location = new System.Drawing.Point(304, 60);
+            this.bnWriteAcqNG.Name = "bnWriteAcqNG";
+            this.bnWriteAcqNG.Size = new System.Drawing.Size(75, 25);
+            this.bnWriteAcqNG.TabIndex = 16;
+            this.bnWriteAcqNG.Text = "M1011";
+            this.bnWriteAcqNG.UseVisualStyleBackColor = true;
+            this.bnWriteAcqNG.Click += new System.EventHandler(this.bnWriteAcqNG_Click);
             // 
             // bnWriteAcqOK
             // 
@@ -508,6 +508,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button bnSave;
-        private System.Windows.Forms.Button bnAcqNG;
+        private System.Windows.Forms.Button bnWriteAcqNG;
     }
 }

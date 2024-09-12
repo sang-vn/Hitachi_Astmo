@@ -47,7 +47,6 @@ namespace Hitachi_Astemo
         private int model;
 
         private System.Timers.Timer timerTrigger = new System.Timers.Timer();
-
         private System.Timers.Timer timerHeartBit = new System.Timers.Timer();
 
 
@@ -58,14 +57,14 @@ namespace Hitachi_Astemo
             //Loop read trigger from PLC then run Job
             if (timerTrigger == null) timerTrigger = new System.Timers.Timer();
             timerTrigger.Enabled = false;
-            timerTrigger.Interval = 10;
+            timerTrigger.Interval = 50;
             timerTrigger.AutoReset = true;
             timerTrigger.Elapsed += TimerTrigger_Elapsed;
 
             //Loop send HeartBit
             if (timerHeartBit == null) timerHeartBit = new System.Timers.Timer();
             timerHeartBit.Enabled = false;
-            timerHeartBit.Interval = 10;
+            timerHeartBit.Interval = 50;
             timerHeartBit.AutoReset = true;
             timerHeartBit.Elapsed += TimerHearBit_Elapsed;
 
@@ -75,16 +74,22 @@ namespace Hitachi_Astemo
         {
             //IntialPLC();
             //IntialLights();
-            IntialProgram();
+            //IntialProgram();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ////Disconnect Lights
-            //long lRet = -1;
-            //lRet = Light.DestroyEthernetConnect();
-            //if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
-            //else MessageBox.Show("Success to disconnect Lights succeed");
+            //Dispose Timer
+            timerHeartBit.Stop();
+            timerHeartBit.Dispose();
+            timerTrigger.Stop();
+            timerTrigger.Dispose();
+
+            //Disconnect Lights
+            long lRet = -1;
+            lRet = Light.DestroyEthernetConnect();
+            if (lRet != 0) MessageBox.Show("Failed to disconnect Lights");
+            else MessageBox.Show("Disconnected Lights");
 
             //Disconnect PLC
             if (tcpClient_PLC != null)
@@ -94,39 +99,108 @@ namespace Hitachi_Astemo
             }
         }
 
+        //Timer Heart Bit
         private void TimerHearBit_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (tcpClient_PLC.Connected == true)
+            Invoke(new Action(() =>
             {
-                try
+                if (tcpClient_PLC.Connected == true)
                 {
-                    HeartBits_1();
+                    try
+                    {
+                        HeartBits_1();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception)
-                {
-                    throw new Exception();
-
-                }
-            }
+            }));
+            
         }
 
+        //Timer Trigger
         private void TimerTrigger_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (tcpClient_PLC.Connected != true)
+            Invoke(new Action(() =>
             {
                 try
                 {
-                    Run();
+                    bool trigger = ReadTrigger();
+                    if (trigger)
+                    {
+                        Run();
+                    }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    throw new Exception();
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            else MessageBox.Show("Can not communication with PLC");
+            }));
         }
 
-        #region Even Click Button
+        #region Run
+        private void Run()
+        {
+            //Turn on Lights
+            Light.SetIntensity(1, 200);
+            Light.SetIntensity(2, 200);
+            Light.SetIntensity(3, 200);
+            Light.SetIntensity(4, 200);
+            Thread.Sleep(100);
+
+            //After 100ms, Acquisit Image
+            try
+            {
+                tbCamera.Run();
+                cogRecordDisplay1.InteractiveGraphics.Clear();
+                cogRecordDisplay1.StaticGraphics.Clear();
+                cogRecordDisplay1.Record = tbCamera.CreateLastRunRecord().SubRecords[0];
+                WriteAcqOK();
+
+                Light.SetIntensity(1, 0);
+                Light.SetIntensity(2, 0);
+                Light.SetIntensity(3, 0);
+                Light.SetIntensity(4, 0);
+
+                tbVisionTool.Run();
+                cogRecordDisplay2.InteractiveGraphics.Clear();
+                cogRecordDisplay2.StaticGraphics.Clear();
+                cogRecordDisplay2.Record = tbVisionTool.CreateLastRunRecord().SubRecords[0];
+
+                //if ((string)tbVisionTool.Outputs["Result"].Value == "OK")
+                //{
+                //    WriteResultOK();
+                //}
+                //else WriteResultNG();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Event Click Button
+        private void bnBegin_Click(object sender, System.EventArgs e)
+        {
+            timerTrigger.Enabled = true;
+            timerTrigger.Start();
+
+            timerHeartBit.Enabled = true;
+            timerHeartBit.Start();
+        }
+
+        private void bnEnd_Click(object sender, EventArgs e)
+        {
+            timerTrigger.Stop();
+            timerTrigger.Enabled = false;
+
+            timerHeartBit.Stop();
+            timerHeartBit.Enabled = false;
+        }
+
         //Setup Camera
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
@@ -144,7 +218,13 @@ namespace Hitachi_Astemo
             connect_PLC.IPChanged += PLC_IP_Changed;
             connect_PLC.ShowDialog();
         }
-        
+
+        //Setup Lights
+        private void tsSetupLights_Menu1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void PLC_IP_Changed(object sender, Tuple<string, int> inIP)
         {
             this.IpAddress_PLC = inIP.Item1;
@@ -158,15 +238,7 @@ namespace Hitachi_Astemo
             IntialPLC();
         }
 
-        private void bnBegin_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void bnEnd_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         #endregion
 
@@ -212,7 +284,6 @@ namespace Hitachi_Astemo
                 {
                     lbPLCConnected.Text = "Disconnected";
                     lbPLCConnected.ForeColor = Color.Red;
-                    HeartBits_1();
                     MessageBox.Show("Disconnected PLC");
                 }
             }
@@ -234,11 +305,15 @@ namespace Hitachi_Astemo
                 if (0 != lRet)
                 {
                     lbLightsConnected.Text = "Disconnected";
+                    lbLightsConnected.ForeColor = Color.Red;
+                    MessageBox.Show("Cannot connect Lights");
                     return;
                 }
                 else
                 {
                     lbLightsConnected.Text = "Connected";
+                    lbLightsConnected.ForeColor = Color.Green;
+                    MessageBox.Show("Connected Lights");
                 }
             }
 
@@ -248,42 +323,6 @@ namespace Hitachi_Astemo
             }
         }
 #endregion
-
-        #region Run
-        private void Run()
-        {
-            //Turn on Lights
-            Light.SetIntensity(1, 200);
-            Light.SetIntensity(2, 200);
-            Light.SetIntensity(3, 200);
-            Light.SetIntensity(4, 200);
-            Thread.Sleep(100);
-
-            //After 100ms, Acquisit Image
-            try
-            {
-                tbCamera.Run();
-                WriteAcqOK();
-
-                Light.SetIntensity(1, 0);
-                Light.SetIntensity(2, 0);
-                Light.SetIntensity(3, 0);
-                Light.SetIntensity(4, 0);
-
-                tbVisionTool.Run();
-                if ((string)tbVisionTool.Outputs["Result"].Value == "OK")
-                {
-                    WriteResultOK();
-                }
-                else WriteResultNG();
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
-
-        }
-        #endregion
 
         #region Edit read/write register from PLC
         private bool ReadTrigger()
@@ -297,7 +336,8 @@ namespace Hitachi_Astemo
             {
                 trigger_signal = response[11].ToString("X2");
             }
-            return true;
+            if (trigger_signal == "10") return true;
+            else return false;
         }
 
         private void WriteAcqOK()
@@ -355,6 +395,7 @@ namespace Hitachi_Astemo
         }
         #endregion
 
+        
     }
 
 }

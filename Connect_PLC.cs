@@ -37,10 +37,11 @@ namespace Hitachi_Astemo
         {
             if (bnConnect.Text == "Connect")
             {
+
                 IpAddress = tbIpAddress.Text;
                 Port = int.Parse(tbPort.Text);
-                try
-                {
+                try 
+                { 
                     tcpClient = new TcpClient(IpAddress, Port);
                     stream = tcpClient.GetStream();
                     if (tcpClient.Connected)
@@ -62,6 +63,10 @@ namespace Hitachi_Astemo
             {
                 stream.Close();
                 tcpClient.Close();
+
+                stream.Dispose();
+                tcpClient.Dispose();
+
                 bnConnect.Text = "Connect";
                 lbNotice.Text = "Disconnected";
                 lbNotice.BackColor = Color.Red;
@@ -182,7 +187,7 @@ namespace Hitachi_Astemo
             tbSentData.Text = dataSend;
         }
 
-        private void bnAcqNG_Click(object sender, EventArgs e)
+        private void bnWriteAcqNG_Click(object sender, EventArgs e)
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0xf3, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
