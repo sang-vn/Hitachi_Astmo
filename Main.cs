@@ -16,18 +16,20 @@ using CSharp_OPTControllerAPI;
 using System.Windows.Media.Media3D;
 using System.Threading;
 using System.Runtime.InteropServices.ComTypes;
+using System.Windows.Forms;
+using System.Timers;
 
 namespace Hitachi_Astemo
 {
     public partial class Main : Form
     {
-        private int check_face = 0;
 
-        //Intial connect Camera
-        public CogToolBlock toolBlock = new CogToolBlock();
-        CogFrameGrabbers myframegrabbers;
-        ICogFrameGrabber myframegrabber;
-        ICogAcqFifo myFifo;
+        //Tool Block
+        private CogToolBlock tbCamera;
+        private CogToolBlock tbVisionTool;
+
+        private string Path_tbCamera;
+        private string Path_tbVisionTool;
 
         //Intial connect PLC 
         private TcpClient tcpClient_PLC = new TcpClient();
@@ -44,28 +46,51 @@ namespace Hitachi_Astemo
         private string trigger_signal;
         private int model;
 
+        private System.Timers.Timer timerTrigger = new System.Timers.Timer();
+
 
         public Main()
         {
             InitializeComponent();
+            if (timerTrigger == null)
+                timerTrigger = new System.Timers.Timer();
+            timerTrigger.Enabled = false;
+            timerTrigger.Interval = 10;
+            timerTrigger.AutoReset = true;
+            timerTrigger.Elapsed += TimerTrigger_Elapsed;
+        }
+
+        private void TimerTrigger_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (tcpClient_PLC.Connected != true)
+            {
+                try
+                {
+                    tcpClient_PLC = new TcpClient();
+                }
+                catch
+                {
+                    throw new Exception();
+                }
+            }
+            if (tcpClient_PLC.Connected == true)
+            {
+                if (ReadTrigger())
+                {
+
+                }
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             //IntialPLC();
-            //IntialCamera();
             //IntialLights();
         }
 
 
-
-
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ////Disconnect Camera
-            //myFifo = null;
-            //myframegrabber = null;
-
             ////Disconnect Lights
             //long lRet = -1;
             //lRet = Light.DestroyEthernetConnect();
@@ -80,6 +105,7 @@ namespace Hitachi_Astemo
             }
         }
 
+        //Setup Camera
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
             Setup_Camera setup_Camera = new Setup_Camera();
@@ -141,15 +167,6 @@ namespace Hitachi_Astemo
             }
         }
 
-        //Connect Camera
-        private void IntialCamera()
-        {
-            myframegrabbers = new CogFrameGrabbers();
-            myframegrabber = myframegrabbers[0];
-            CogStringCollection availableFormatImages = myframegrabber.AvailableVideoFormats;
-            myFifo = myframegrabber.CreateAcqFifo(availableFormatImages[0], Cognex.VisionPro.CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
-        }
-
         //Connect Lights
         private void IntialLights()
         {
@@ -176,103 +193,27 @@ namespace Hitachi_Astemo
         }
 
 
-
-        #region Processing
-        private void Processing()
-        {
-            try
-            {
-                //ReadModel
-
-                //Choose toolblock
-
-                //If check face 1
-                if(check_face == 1)
-                {
-                    try
-                    {
-                        //while bit m1000 = 0
-                        while (false)
-                        {
-                            //Read bit Trigger M1000
-
-                            //if = 0 continues
-                            //if time wait > 4000ms show Error
-
-                            //if = 1 Excute Processing()
-                            //and check_face = 2
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                }
-
-                //If check face 2
-                if (check_face == 2)
-                {
-                    try
-                    {
-                        //while bit m1000 = 0
-                        while (false)
-                        {
-                            //Read bit Trigger M1000
-
-                            //if = 0 continues
-                            //if time wait > 4000ms show Error
-
-                            //if = 1 Excute Processing()
-                            //and check_face = 3
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                }
-
-                //If check face 3
-                if (check_face == 3)
-                {
-                    try
-                    {
-                        //while bit m1002 = 0
-                        while (false)
-                        {
-                            //Read bit Trigger M1002
-
-                            //if = 0 continues
-                            //if time wait > 4000ms show Error
-
-                            //if = 1 Excute Processing()
-                            //and check_face = 1
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        #endregion
-
         #region Run
         private void Run()
         {
             //Turn on Lights
+            Light.SetIntensity(1, 200);
+            Light.SetIntensity(2, 200);
+            Light.SetIntensity(3, 200);
+            Light.SetIntensity(4, 200);
+            Thread.Sleep(100);
+
+            //After 100ms, Acquisit Image
             
-            //Wait 20ms, Acquisit Image
+
+            Thread.Sleep(50);
+            Light.SetIntensity(1, 0);
+            Light.SetIntensity(2, 0);
+            Light.SetIntensity(3, 0);
+            Light.SetIntensity(4, 0);
 
             //Write Trigger OK M1010
+            //if(myFifo.)
 
             //Run toolblock.FaceN
 
@@ -294,7 +235,7 @@ namespace Hitachi_Astemo
         }
 
         #region Edit read/write register PLC
-        private void bnReadTrigger_Click(object sender, EventArgs e)
+        private bool ReadTrigger()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
              0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00};
@@ -305,9 +246,10 @@ namespace Hitachi_Astemo
             {
                 trigger_signal = response[11].ToString("X2");
             }
+            return true;
         }
 
-        private void bnWriteAcqOK_Click(object sender, EventArgs e)
+        private void WriteAcqOK()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
@@ -315,7 +257,7 @@ namespace Hitachi_Astemo
             stream.Write(request, 0, request.Length);
         }
 
-        private void bnAcqNG_Click(object sender, EventArgs e)
+        private void AcqNG()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0xf3, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
@@ -323,7 +265,7 @@ namespace Hitachi_Astemo
             stream.Write(request, 0, request.Length);
         }
 
-        private void bnWriteResultOK_Click(object sender, EventArgs e)
+        private void WriteResultOK()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0xfc, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
@@ -332,7 +274,7 @@ namespace Hitachi_Astemo
         }
 
 
-        private void bnWriteResultNG_Click(object sender, EventArgs e)
+        private void WriteResultNG()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0xfd, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
@@ -341,7 +283,7 @@ namespace Hitachi_Astemo
         }
 
 
-        private void bnReadModel_Click(object sender, EventArgs e)
+        private void ReadModel()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
              0x00, 0x01, 0x04, 0x00, 0x00, 0xe8, 0x03, 0x00, 0xa8, 0x01, 0x00};
@@ -355,14 +297,14 @@ namespace Hitachi_Astemo
             }
         }
 
-        private void HeartBits_1(object sender, EventArgs e)
+        private void HeartBits_1()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x10};
             stream.Write(request, 0, request.Length);
         }
 
-        private void HeartBits_0(object sender, EventArgs e)
+        private void HeartBits_0()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
              0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x00};

@@ -185,9 +185,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VPro Program\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Icon\Camera-Image.ico" />
     <Content Include="Icon\Hitachi-Icon.ico" />
