@@ -48,46 +48,35 @@ namespace Hitachi_Astemo
 
         private System.Timers.Timer timerTrigger = new System.Timers.Timer();
 
+        private System.Timers.Timer timerHeartBit = new System.Timers.Timer();
+
 
         public Main()
         {
             InitializeComponent();
-            if (timerTrigger == null)
-                timerTrigger = new System.Timers.Timer();
+
+            //Loop read trigger from PLC then run Job
+            if (timerTrigger == null) timerTrigger = new System.Timers.Timer();
             timerTrigger.Enabled = false;
             timerTrigger.Interval = 10;
             timerTrigger.AutoReset = true;
             timerTrigger.Elapsed += TimerTrigger_Elapsed;
-        }
 
-        private void TimerTrigger_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            if (tcpClient_PLC.Connected != true)
-            {
-                try
-                {
-                    tcpClient_PLC = new TcpClient();
-                }
-                catch
-                {
-                    throw new Exception();
-                }
-            }
-            if (tcpClient_PLC.Connected == true)
-            {
-                if (ReadTrigger())
-                {
+            //Loop send HeartBit
+            if (timerHeartBit == null) timerHeartBit = new System.Timers.Timer();
+            timerHeartBit.Enabled = false;
+            timerHeartBit.Interval = 10;
+            timerHeartBit.AutoReset = true;
+            timerHeartBit.Elapsed += TimerHearBit_Elapsed;
 
-                }
-            }
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             //IntialPLC();
             //IntialLights();
+            IntialProgram();
         }
-
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -105,6 +94,39 @@ namespace Hitachi_Astemo
             }
         }
 
+        private void TimerHearBit_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (tcpClient_PLC.Connected == true)
+            {
+                try
+                {
+                    HeartBits_1();
+                }
+                catch (Exception)
+                {
+                    throw new Exception();
+
+                }
+            }
+        }
+
+        private void TimerTrigger_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (tcpClient_PLC.Connected != true)
+            {
+                try
+                {
+                    Run();
+                }
+                catch
+                {
+                    throw new Exception();
+                }
+            }
+            else MessageBox.Show("Can not communication with PLC");
+        }
+
+        #region Even Click Button
         //Setup Camera
         private void tsSetupCamera_Menu1_Click(object sender, System.EventArgs e)
         {
@@ -136,7 +158,39 @@ namespace Hitachi_Astemo
             IntialPLC();
         }
 
-        //Connect PLC
+        private void bnBegin_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void bnEnd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Intialize
+
+        //Intial Program
+        private void IntialProgram()
+        {
+            try
+            {
+                string CameraPath = AppDomain.CurrentDomain.BaseDirectory + "VPro Program\\" + "Camera.vpp";
+                string VisionToolPath = AppDomain.CurrentDomain.BaseDirectory + "VPro Program\\" + "VisionTool.vpp";
+                tbCamera = new CogToolBlock();
+                tbVisionTool = new CogToolBlock();
+                tbCamera = CogSerializer.LoadObjectFromFile(CameraPath) as CogToolBlock;
+                tbVisionTool = CogSerializer.LoadObjectFromFile(VisionToolPath) as CogToolBlock;
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        //Intial PLC
         private void IntialPLC()
         {
             if(tcpClient_PLC != null)
@@ -151,12 +205,14 @@ namespace Hitachi_Astemo
                 {
                     lbPLCConnected.Text = "Connected";
                     lbPLCConnected.ForeColor = Color.Green;
+                    HeartBits_1();
                     MessageBox.Show("Connected PLC");
                 }
                 else
                 {
                     lbPLCConnected.Text = "Disconnected";
                     lbPLCConnected.ForeColor = Color.Red;
+                    HeartBits_1();
                     MessageBox.Show("Disconnected PLC");
                 }
             }
@@ -167,7 +223,7 @@ namespace Hitachi_Astemo
             }
         }
 
-        //Connect Lights
+        //Intial Lights
         private void IntialLights()
         {
             long lRet = -1;
@@ -191,7 +247,7 @@ namespace Hitachi_Astemo
                 MessageBox.Show(ex.Message);
             }
         }
-
+#endregion
 
         #region Run
         private void Run()
@@ -204,37 +260,32 @@ namespace Hitachi_Astemo
             Thread.Sleep(100);
 
             //After 100ms, Acquisit Image
-            
+            try
+            {
+                tbCamera.Run();
+                WriteAcqOK();
 
-            Thread.Sleep(50);
-            Light.SetIntensity(1, 0);
-            Light.SetIntensity(2, 0);
-            Light.SetIntensity(3, 0);
-            Light.SetIntensity(4, 0);
+                Light.SetIntensity(1, 0);
+                Light.SetIntensity(2, 0);
+                Light.SetIntensity(3, 0);
+                Light.SetIntensity(4, 0);
 
-            //Write Trigger OK M1010
-            //if(myFifo.)
-
-            //Run toolblock.FaceN
-
-            //Lưu ảnh NG ra bên cạnh
-
-            //Write OK/NG
+                tbVisionTool.Run();
+                if ((string)tbVisionTool.Outputs["Result"].Value == "OK")
+                {
+                    WriteResultOK();
+                }
+                else WriteResultNG();
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
 
         }
         #endregion
 
-        private void bnBegin_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void bnEnd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #region Edit read/write register PLC
+        #region Edit read/write register from PLC
         private bool ReadTrigger()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
@@ -252,15 +303,7 @@ namespace Hitachi_Astemo
         private void WriteAcqOK()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
-
-            stream.Write(request, 0, request.Length);
-        }
-
-        private void AcqNG()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xf3, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x01, 0x00, 0x00};
 
             stream.Write(request, 0, request.Length);
         }
@@ -311,6 +354,7 @@ namespace Hitachi_Astemo
             stream.Write(request, 0, request.Length);
         }
         #endregion
+
     }
 
 }
