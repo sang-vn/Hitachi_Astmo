@@ -18,6 +18,7 @@ using System.Threading;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.Timers;
+using HslCommunication;                                                                                                         
 
 namespace Hitachi_Astemo
 {
@@ -43,11 +44,13 @@ namespace Hitachi_Astemo
         private string IpAddress_Lights = "192.168.1.16";
         //public int Port_Lights = 3000;
 
-        private string trigger_signal;
+        private string trigger_signal = "10";
         private int model;
 
         private System.Timers.Timer timerTrigger = new System.Timers.Timer();
         private System.Timers.Timer timerHeartBit = new System.Timers.Timer();
+
+        int i = 0;
 
 
         public Main()
@@ -57,7 +60,7 @@ namespace Hitachi_Astemo
             //Loop read trigger from PLC then run Job
             if (timerTrigger == null) timerTrigger = new System.Timers.Timer();
             timerTrigger.Enabled = false;
-            timerTrigger.Interval = 50;
+            timerTrigger.Interval = 5000;
             timerTrigger.AutoReset = true;
             timerTrigger.Elapsed += TimerTrigger_Elapsed;
 
@@ -72,9 +75,9 @@ namespace Hitachi_Astemo
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //IntialPLC();
-            //IntialLights();
-            //IntialProgram();
+            IntialPLC();
+            IntialLights();
+            IntialProgram();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -126,11 +129,9 @@ namespace Hitachi_Astemo
             {
                 try
                 {
-                    bool trigger = ReadTrigger();
-                    if (trigger)
-                    {
-                        Run();
-                    }
+                    bnBegin.Text = i.ToString();
+                    i++;
+                    if (trigger_signal == "10") Run();
                 }
                 catch (Exception ex)
                 {
@@ -156,6 +157,7 @@ namespace Hitachi_Astemo
                 cogRecordDisplay1.InteractiveGraphics.Clear();
                 cogRecordDisplay1.StaticGraphics.Clear();
                 cogRecordDisplay1.Record = tbCamera.CreateLastRunRecord().SubRecords[0];
+                WriteTrigger_0();
                 WriteAcqOK();
 
                 Light.SetIntensity(1, 0);
@@ -256,9 +258,9 @@ namespace Hitachi_Astemo
                 tbCamera = CogSerializer.LoadObjectFromFile(CameraPath) as CogToolBlock;
                 tbVisionTool = CogSerializer.LoadObjectFromFile(VisionToolPath) as CogToolBlock;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -325,25 +327,31 @@ namespace Hitachi_Astemo
 #endregion
 
         #region Edit read/write register from PLC
-        private bool ReadTrigger()
+        private void ReadTrigger()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
-             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00};
+             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x01, 0x00};
             stream.Write(request, 0, request.Length);
             byte[] response = new byte[12];
             stream.Read(response, 0, response.Length);
             if (response[9] == 0 && response[10] == 0)  //no error
             {
-                trigger_signal = response[11].ToString("X2");
+                trigger_signal = response[11].ToString("X");
             }
-            if (trigger_signal == "10") return true;
-            else return false;
+        }
+
+        private void WriteTrigger_0()
+        {
+            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00, 0x00};
+
+            stream.Write(request, 0, request.Length);
         }
 
         private void WriteAcqOK()
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x01, 0x00, 0x00};
+             0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
 
             stream.Write(request, 0, request.Length);
         }
