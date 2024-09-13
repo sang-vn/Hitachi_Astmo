@@ -14,6 +14,7 @@ using System.Net.NetworkInformation;
 using OpenCvSharp;
 using System.IO;
 using System.Collections;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Hitachi_Astemo
 {
@@ -110,8 +111,8 @@ namespace Hitachi_Astemo
             tbBeginRegisterRead.Enabled = false;
             tbNumRegisterRead.Enabled = false;
 
-            IpAddress = mainForm.IpAddress_PLC;
-            Port = mainForm.Port_PLC;
+            //IpAddress = mainForm.IpAddress_PLC;
+            //Port = mainForm.Port_PLC;
         }
 
         private void cbReadMode_CheckedChanged(object sender, EventArgs e)
@@ -167,14 +168,14 @@ namespace Hitachi_Astemo
         private void bnReadTrigger_Click(object sender, EventArgs e)
         {
             byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
-             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x01, 0x00};
+             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x04, 0x00};
             stream.Write(request, 0, request.Length);
-            byte[] response = new byte[12];
+            byte[] response = new byte[13];
             stream.Read(response, 0, response.Length);
             if (response[9] == 0 && response[10]==0)  //no error
             {
-                string text = response[11].ToString("X");
-                tbReceivedData.Text = (text == "10") ? "OK" : "NG";
+                byte bitTrigger = response[11];
+                tbReceivedData.Text = bitTrigger.ToString("X");
             }
         }
 

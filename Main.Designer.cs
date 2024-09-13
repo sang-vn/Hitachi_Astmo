@@ -130,6 +130,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel26, 0, 0);
+            this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -138,7 +139,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1540, 845);
             this.tableLayoutPanel1.TabIndex = 1;
-            this.tableLayoutPanel1.UseWaitCursor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -154,7 +154,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 34);
             this.tableLayoutPanel2.TabIndex = 1;
-            this.tableLayoutPanel2.UseWaitCursor = true;
             // 
             // bnEn_Vn
             // 
@@ -168,7 +167,6 @@
             this.bnEn_Vn.TabIndex = 1;
             this.bnEn_Vn.Text = "en/vn";
             this.bnEn_Vn.UseVisualStyleBackColor = false;
-            this.bnEn_Vn.UseWaitCursor = true;
             // 
             // bnUser
             // 
@@ -180,7 +178,6 @@
             this.bnUser.TabIndex = 0;
             this.bnUser.Text = "Admin";
             this.bnUser.UseVisualStyleBackColor = true;
-            this.bnUser.UseWaitCursor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -196,7 +193,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1314, 799);
             this.tableLayoutPanel3.TabIndex = 2;
-            this.tableLayoutPanel3.UseWaitCursor = true;
             // 
             // cogRecordDisplay1
             // 
@@ -215,7 +211,6 @@
             this.cogRecordDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay1.OcxState")));
             this.cogRecordDisplay1.Size = new System.Drawing.Size(1045, 793);
             this.cogRecordDisplay1.TabIndex = 0;
-            this.cogRecordDisplay1.UseWaitCursor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -235,7 +230,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(257, 793);
             this.tableLayoutPanel4.TabIndex = 1;
-            this.tableLayoutPanel4.UseWaitCursor = true;
             // 
             // cogRecordDisplay2
             // 
@@ -254,7 +248,6 @@
             this.cogRecordDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay2.OcxState")));
             this.cogRecordDisplay2.Size = new System.Drawing.Size(251, 192);
             this.cogRecordDisplay2.TabIndex = 0;
-            this.cogRecordDisplay2.UseWaitCursor = true;
             // 
             // cogRecordDisplay3
             // 
@@ -273,7 +266,6 @@
             this.cogRecordDisplay3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay3.OcxState")));
             this.cogRecordDisplay3.Size = new System.Drawing.Size(251, 192);
             this.cogRecordDisplay3.TabIndex = 1;
-            this.cogRecordDisplay3.UseWaitCursor = true;
             // 
             // cogRecordDisplay4
             // 
@@ -292,7 +284,6 @@
             this.cogRecordDisplay4.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay4.OcxState")));
             this.cogRecordDisplay4.Size = new System.Drawing.Size(251, 192);
             this.cogRecordDisplay4.TabIndex = 2;
-            this.cogRecordDisplay4.UseWaitCursor = true;
             // 
             // cogRecordDisplay5
             // 
@@ -311,7 +302,6 @@
             this.cogRecordDisplay5.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay5.OcxState")));
             this.cogRecordDisplay5.Size = new System.Drawing.Size(251, 193);
             this.cogRecordDisplay5.TabIndex = 3;
-            this.cogRecordDisplay5.UseWaitCursor = true;
             // 
             // tableLayoutPanel5
             // 
@@ -327,7 +317,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(214, 799);
             this.tableLayoutPanel5.TabIndex = 3;
-            this.tableLayoutPanel5.UseWaitCursor = true;
             // 
             // tableLayoutPanel7
             // 
@@ -343,7 +332,6 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(208, 162);
             this.tableLayoutPanel7.TabIndex = 1;
-            this.tableLayoutPanel7.UseWaitCursor = true;
             // 
             // tableLayoutPanel6
             // 
@@ -365,7 +353,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(202, 116);
             this.tableLayoutPanel6.TabIndex = 0;
-            this.tableLayoutPanel6.UseWaitCursor = true;
             // 
             // lbPLC
             // 
@@ -381,7 +368,6 @@
             this.lbPLC.TabIndex = 0;
             this.lbPLC.Text = "PLC";
             this.lbPLC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbPLC.UseWaitCursor = true;
             // 
             // lbCamera
             // 
@@ -397,7 +383,6 @@
             this.lbCamera.TabIndex = 2;
             this.lbCamera.Text = "Camera";
             this.lbCamera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbCamera.UseWaitCursor = true;
             // 
             // lbLights
             // 
@@ -413,7 +398,6 @@
             this.lbLights.TabIndex = 6;
             this.lbLights.Text = "Lights";
             this.lbLights.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbLights.UseWaitCursor = true;
             // 
             // lbPLCConnected
             // 
@@ -427,7 +411,6 @@
             this.lbPLCConnected.TabIndex = 1;
             this.lbPLCConnected.Text = "Connected";
             this.lbPLCConnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbPLCConnected.UseWaitCursor = true;
             // 
             // lbCameraConnected
             // 
@@ -441,7 +424,6 @@
             this.lbCameraConnected.TabIndex = 3;
             this.lbCameraConnected.Text = "Connected";
             this.lbCameraConnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbCameraConnected.UseWaitCursor = true;
             // 
             // lbLightsConnected
             // 
@@ -455,7 +437,6 @@
             this.lbLightsConnected.TabIndex = 5;
             this.lbLightsConnected.Text = "Connected";
             this.lbLightsConnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbLightsConnected.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -468,7 +449,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "STATUS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.UseWaitCursor = true;
             // 
             // tableLayoutPanel8
             // 
@@ -495,7 +475,6 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(208, 625);
             this.tableLayoutPanel8.TabIndex = 2;
-            this.tableLayoutPanel8.UseWaitCursor = true;
             // 
             // tableLayoutPanel10
             // 
@@ -512,7 +491,6 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(196, 44);
             this.tableLayoutPanel10.TabIndex = 11;
-            this.tableLayoutPanel10.UseWaitCursor = true;
             // 
             // label5
             // 
@@ -527,7 +505,6 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "10";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.UseWaitCursor = true;
             // 
             // label6
             // 
@@ -543,7 +520,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "NG";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.UseWaitCursor = true;
             // 
             // label2
             // 
@@ -556,7 +532,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "INSPECTION RESULT";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.UseWaitCursor = true;
             // 
             // pictureBox1
             // 
@@ -568,7 +543,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
             // 
             // tableLayoutPanel9
             // 
@@ -584,7 +558,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(196, 44);
             this.tableLayoutPanel9.TabIndex = 10;
-            this.tableLayoutPanel9.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -599,7 +572,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "10";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.UseWaitCursor = true;
             // 
             // lbOK
             // 
@@ -615,7 +587,6 @@
             this.lbOK.TabIndex = 0;
             this.lbOK.Text = "OK";
             this.lbOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbOK.UseWaitCursor = true;
             // 
             // tableLayoutPanel26
             // 
@@ -633,7 +604,6 @@
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel26.Size = new System.Drawing.Size(1030, 34);
             this.tableLayoutPanel26.TabIndex = 4;
-            this.tableLayoutPanel26.UseWaitCursor = true;
             // 
             // menuStrip1
             // 
@@ -652,7 +622,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(810, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.UseWaitCursor = true;
             // 
             // tsChuongTrinh_Menu1
             // 
@@ -854,7 +823,6 @@
             this.bnBegin.TabIndex = 1;
             this.bnBegin.Text = "BEGIN";
             this.bnBegin.UseVisualStyleBackColor = false;
-            this.bnBegin.UseWaitCursor = true;
             this.bnBegin.Click += new System.EventHandler(this.bnBegin_Click);
             // 
             // bnEnd
@@ -870,7 +838,6 @@
             this.bnEnd.TabIndex = 2;
             this.bnEnd.Text = "END";
             this.bnEnd.UseVisualStyleBackColor = false;
-            this.bnEnd.UseWaitCursor = true;
             this.bnEnd.Click += new System.EventHandler(this.bnEnd_Click);
             // 
             // Main
@@ -880,13 +847,13 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1540, 845);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HITACHI ASTEMO INSPECTION SYSTEM";
-            this.UseWaitCursor = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);

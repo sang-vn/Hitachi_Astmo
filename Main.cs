@@ -18,7 +18,8 @@ using System.Threading;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.Timers;
-using HslCommunication;                                                                                                         
+using HslCommunication;
+using HslCommunication.Profinet;
 
 namespace Hitachi_Astemo
 {
@@ -33,10 +34,9 @@ namespace Hitachi_Astemo
         private string Path_tbVisionTool;
 
         //Intial connect PLC 
-        private TcpClient tcpClient_PLC = new TcpClient();
-        internal string IpAddress_PLC = "192.168.1.100";
-        internal int Port_PLC = 3000;
-        private Stream stream = null;
+        private HslCommunication.Profinet.Melsec.MelsecA1ENet PLC = null;
+        private string IpAddress_PLC = "192.168.1.100";
+        private int Port_PLC = 3000;
 
         //Intial connect Lights
         public OPTControllerAPI Light = null;
@@ -44,7 +44,8 @@ namespace Hitachi_Astemo
         private string IpAddress_Lights = "192.168.1.16";
         //public int Port_Lights = 3000;
 
-        private string trigger_signal = "10";
+        private bool trigger_signal = false;
+        private string trigger = "1000";
         private int model;
 
         private System.Timers.Timer timerTrigger = new System.Timers.Timer();
@@ -60,17 +61,16 @@ namespace Hitachi_Astemo
             //Loop read trigger from PLC then run Job
             if (timerTrigger == null) timerTrigger = new System.Timers.Timer();
             timerTrigger.Enabled = false;
-            timerTrigger.Interval = 5000;
+            timerTrigger.Interval = 500;
             timerTrigger.AutoReset = true;
             timerTrigger.Elapsed += TimerTrigger_Elapsed;
 
             //Loop send HeartBit
             if (timerHeartBit == null) timerHeartBit = new System.Timers.Timer();
             timerHeartBit.Enabled = false;
-            timerHeartBit.Interval = 50;
+            timerHeartBit.Interval = 500;
             timerHeartBit.AutoReset = true;
             timerHeartBit.Elapsed += TimerHearBit_Elapsed;
-
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -95,11 +95,10 @@ namespace Hitachi_Astemo
             else MessageBox.Show("Disconnected Lights");
 
             //Disconnect PLC
-            if (tcpClient_PLC != null)
-            {
-                tcpClient_PLC.Dispose();
-                MessageBox.Show("Disconnected PLC");
-            }
+            PLC.ConnectClose();
+            PLC.Dispose();
+
+
         }
 
         //Timer Heart Bit
@@ -107,17 +106,7 @@ namespace Hitachi_Astemo
         {
             Invoke(new Action(() =>
             {
-                if (tcpClient_PLC.Connected == true)
-                {
-                    try
-                    {
-                        HeartBits_1();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+                PLC.Write("M1030", (bool)true);
             }));
             
         }
@@ -129,15 +118,45 @@ namespace Hitachi_Astemo
             {
                 try
                 {
-                    bnBegin.Text = i.ToString();
-                    i++;
-                    if (trigger_signal == "10") Run();
+                    model = PLC.ReadInt16("D1000").Content;
+                    
+
+                    bool trigger = PLC.ReadBool("M1000").Content;
+                    if (trigger) 
+                    {
+                        Light.SetIntensity(1, 200);
+                        Light.SetIntensity(2, 200);
+                        Light.SetIntensity(3, 200);
+                        Light.SetIntensity(4, 200);
+
+                        tbCamera.Run();
+                        if(tbCamera.AbortRunOnToolFailure) PLC.Write("M1011", (bool)true);
+                        else PLC.Write("M1010", (bool)true);
+                        Display(cogRecordDisplay1, tbCamera);
+
+                        Light.SetIntensity(1, 0);
+                        Light.SetIntensity(2, 0);
+                        Light.SetIntensity(3, 0);
+                        Light.SetIntensity(4, 0);
+
+                        tbVisionTool.Run();
+                        if (tbVisionTool.AbortRunOnToolFailure) PLC.Write("M1021", (bool)true);
+                        else PLC.Write("M1020", (bool)false);
+                        Display(cogRecordDisplay2, tbVisionTool);
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }));
+        }
+
+        void Display(CogRecordDisplay dsp, CogToolBlock tb)
+        {
+            dsp.InteractiveGraphics.Clear();
+            dsp.StaticGraphics.Clear();
+            dsp.Record = tb.CreateLastRunRecord().SubRecords[0];
         }
 
         #region Run
@@ -157,8 +176,7 @@ namespace Hitachi_Astemo
                 cogRecordDisplay1.InteractiveGraphics.Clear();
                 cogRecordDisplay1.StaticGraphics.Clear();
                 cogRecordDisplay1.Record = tbCamera.CreateLastRunRecord().SubRecords[0];
-                WriteTrigger_0();
-                WriteAcqOK();
+                
 
                 Light.SetIntensity(1, 0);
                 Light.SetIntensity(2, 0);
@@ -229,18 +247,16 @@ namespace Hitachi_Astemo
 
         private void PLC_IP_Changed(object sender, Tuple<string, int> inIP)
         {
-            this.IpAddress_PLC = inIP.Item1;
-            this.Port_PLC = inIP.Item2;
+            //this.IpAddress_PLC = inIP.Item1;
+            //this.Port_PLC = inIP.Item2;
 
 
-            this.bnBegin.Text = Convert.ToString(IpAddress_PLC);
-            this.bnEnd.Text = Convert.ToString(Port_PLC);
+            //this.bnBegin.Text = Convert.ToString(IpAddress_PLC);
+            //this.bnEnd.Text = Convert.ToString(Port_PLC);
 
-            if(tcpClient_PLC != null) tcpClient_PLC.Dispose();
-            IntialPLC();
+            //if(tcpClient_PLC != null) tcpClient_PLC.Dispose();
+            //IntialPLC();
         }
-
-        
 
         #endregion
 
@@ -267,33 +283,31 @@ namespace Hitachi_Astemo
         //Intial PLC
         private void IntialPLC()
         {
-            if(tcpClient_PLC != null)
-            {
-                tcpClient_PLC.Dispose();
-            }
             try
             {
-                tcpClient_PLC = new TcpClient(IpAddress_PLC, Port_PLC);
-                stream = tcpClient_PLC.GetStream();
-                if (tcpClient_PLC.Connected)
+                if (PLC == null)
+                    PLC = new HslCommunication.Profinet.Melsec.MelsecA1ENet("192.168.1.100",3000);
+                OperateResult connect = PLC.ConnectServer();
+                if (connect.IsSuccess)
                 {
                     lbPLCConnected.Text = "Connected";
                     lbPLCConnected.ForeColor = Color.Green;
-                    HeartBits_1();
                     MessageBox.Show("Connected PLC");
                 }
                 else
                 {
                     lbPLCConnected.Text = "Disconnected";
                     lbPLCConnected.ForeColor = Color.Red;
-                    MessageBox.Show("Disconnected PLC");
+                    MessageBox.Show("Can not connected PLC");
                 }
+                
             }
-
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
+            
         }
 
         //Intial Lights
@@ -324,86 +338,6 @@ namespace Hitachi_Astemo
                 MessageBox.Show(ex.Message);
             }
         }
-#endregion
-
-        #region Edit read/write register from PLC
-        private void ReadTrigger()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
-             0x00, 0x01, 0x04, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x01, 0x00};
-            stream.Write(request, 0, request.Length);
-            byte[] response = new byte[12];
-            stream.Read(response, 0, response.Length);
-            if (response[9] == 0 && response[10] == 0)  //no error
-            {
-                trigger_signal = response[11].ToString("X");
-            }
-        }
-
-        private void WriteTrigger_0()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xe8, 0x03, 0x00, 0x90, 0x02, 0x00, 0x00};
-
-            stream.Write(request, 0, request.Length);
-        }
-
-        private void WriteAcqOK()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xf2, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
-
-            stream.Write(request, 0, request.Length);
-        }
-
-        private void WriteResultOK()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xfc, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
-
-            stream.Write(request, 0, request.Length);
-        }
-
-
-        private void WriteResultNG()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0xfd, 0x03, 0x00, 0x90, 0x01, 0x00, 0x10};
-
-            stream.Write(request, 0, request.Length);
-        }
-
-
-        private void ReadModel()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0c, 0x00, 0x00,
-             0x00, 0x01, 0x04, 0x00, 0x00, 0xe8, 0x03, 0x00, 0xa8, 0x01, 0x00};
-            stream.Write(request, 0, request.Length);
-            byte[] response = new byte[13];
-            stream.Read(response, 0, response.Length);
-            if (response[9] == 0 && response[10] == 0)  //no error
-            {
-                byte[] d1000 = { response[11], response[12] };
-                model = BitConverter.ToInt16(d1000, 0);
-            }
-        }
-
-        private void HeartBits_1()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x10};
-            stream.Write(request, 0, request.Length);
-        }
-
-        private void HeartBits_0()
-        {
-            byte[] request = {0x50, 0x00, 0x00, 0xff, 0xff, 0x03, 0x00, 0x0d, 0x00, 0x00,
-             0x00, 0x01, 0x14, 0x01, 0x00, 0x06, 0x04, 0x00, 0x90, 0x01, 0x00, 0x00};
-            stream.Write(request, 0, request.Length);
-        }
         #endregion
-
-        
     }
-
 }
