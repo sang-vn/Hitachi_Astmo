@@ -75,9 +75,16 @@ namespace Hitachi_Astemo
 
         private void Main_Load(object sender, EventArgs e)
         {
+            tsChuongTrinh_Menu1.Enabled = false;
+            tsSetupCamera_Menu1.Enabled = false;
+            tsSetupPLC_Menu1.Enabled = false;
+            tsSetupLights_Menu1.Enabled = false;
+            tsLogs_Menu1.Enabled = true;
+            tsHelps_Menu1.Enabled = true;
+
             IntialPLC();
             IntialLights();
-            IntialProgram();
+            //IntialProgram();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -343,6 +350,39 @@ namespace Hitachi_Astemo
         private void tsEdit__Menu2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbbUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbbUser.SelectedIndex)
+            {
+                case 0:
+                    tsChuongTrinh_Menu1.Enabled = true;
+                    tsSetupCamera_Menu1.Enabled = true;
+                    tsSetupPLC_Menu1.Enabled = true;
+                    tsSetupLights_Menu1.Enabled = true;
+                    tsLogs_Menu1.Enabled = true;
+                    tsHelps_Menu1.Enabled = true;
+                    break;
+                case 1:
+                    tsChuongTrinh_Menu1.Enabled = false;
+                    tsSetupCamera_Menu1.Enabled = true;
+                    tsSetupPLC_Menu1.Enabled = true;
+                    tsSetupLights_Menu1.Enabled = true;
+                    tsLogs_Menu1.Enabled = true;
+                    tsHelps_Menu1.Enabled = true;
+                    break;
+                case 2:
+                    tsChuongTrinh_Menu1.Enabled = false;
+                    tsSetupCamera_Menu1.Enabled = false;
+                    tsSetupPLC_Menu1.Enabled = false;
+                    tsSetupLights_Menu1.Enabled = false;
+                    tsLogs_Menu1.Enabled = true;
+                    tsHelps_Menu1.Enabled = true;
+                    break;
+                default:
+                    break;
+             }
         }
     }
 }
