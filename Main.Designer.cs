@@ -65,26 +65,6 @@
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsChuongTrinh_Menu1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsLoadProgram_Menu2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG1_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG1_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG1_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG2_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG2_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG2_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG3_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG3_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG3_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG4_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG4_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG4_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG5_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG5_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG5_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG6_Menu3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG6_Left_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsPG6_Right_Menu4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsEdit__Menu2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSetupCamera_Menu1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSetupPLC_Menu1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSetupLights_Menu1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,7 +115,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1540, 845);
             this.tableLayoutPanel1.TabIndex = 1;
@@ -152,7 +132,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 39);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // bnEn_Vn
@@ -163,7 +143,7 @@
             this.bnEn_Vn.Location = new System.Drawing.Point(110, 0);
             this.bnEn_Vn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnEn_Vn.Name = "bnEn_Vn";
-            this.bnEn_Vn.Size = new System.Drawing.Size(101, 34);
+            this.bnEn_Vn.Size = new System.Drawing.Size(101, 39);
             this.bnEn_Vn.TabIndex = 1;
             this.bnEn_Vn.Text = "en/vn";
             this.bnEn_Vn.UseVisualStyleBackColor = false;
@@ -174,7 +154,7 @@
             this.bnUser.Location = new System.Drawing.Point(3, 0);
             this.bnUser.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnUser.Name = "bnUser";
-            this.bnUser.Size = new System.Drawing.Size(101, 34);
+            this.bnUser.Size = new System.Drawing.Size(101, 39);
             this.bnUser.TabIndex = 0;
             this.bnUser.Text = "Admin";
             this.bnUser.UseVisualStyleBackColor = true;
@@ -187,11 +167,11 @@
             this.tableLayoutPanel3.Controls.Add(this.cogRecordDisplay1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 48);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1314, 799);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1314, 794);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // cogRecordDisplay1
@@ -209,7 +189,7 @@
             this.cogRecordDisplay1.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay1.Name = "cogRecordDisplay1";
             this.cogRecordDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay1.OcxState")));
-            this.cogRecordDisplay1.Size = new System.Drawing.Size(1045, 793);
+            this.cogRecordDisplay1.Size = new System.Drawing.Size(1045, 788);
             this.cogRecordDisplay1.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -228,7 +208,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(257, 793);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(257, 788);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // cogRecordDisplay2
@@ -246,7 +226,7 @@
             this.cogRecordDisplay2.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay2.Name = "cogRecordDisplay2";
             this.cogRecordDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay2.OcxState")));
-            this.cogRecordDisplay2.Size = new System.Drawing.Size(251, 192);
+            this.cogRecordDisplay2.Size = new System.Drawing.Size(251, 191);
             this.cogRecordDisplay2.TabIndex = 0;
             // 
             // cogRecordDisplay3
@@ -259,12 +239,12 @@
             this.cogRecordDisplay3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cogRecordDisplay3.DoubleTapZoomCycleLength = 2;
             this.cogRecordDisplay3.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplay3.Location = new System.Drawing.Point(3, 201);
+            this.cogRecordDisplay3.Location = new System.Drawing.Point(3, 200);
             this.cogRecordDisplay3.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
             this.cogRecordDisplay3.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay3.Name = "cogRecordDisplay3";
             this.cogRecordDisplay3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay3.OcxState")));
-            this.cogRecordDisplay3.Size = new System.Drawing.Size(251, 192);
+            this.cogRecordDisplay3.Size = new System.Drawing.Size(251, 191);
             this.cogRecordDisplay3.TabIndex = 1;
             // 
             // cogRecordDisplay4
@@ -277,12 +257,12 @@
             this.cogRecordDisplay4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cogRecordDisplay4.DoubleTapZoomCycleLength = 2;
             this.cogRecordDisplay4.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplay4.Location = new System.Drawing.Point(3, 399);
+            this.cogRecordDisplay4.Location = new System.Drawing.Point(3, 397);
             this.cogRecordDisplay4.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
             this.cogRecordDisplay4.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay4.Name = "cogRecordDisplay4";
             this.cogRecordDisplay4.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay4.OcxState")));
-            this.cogRecordDisplay4.Size = new System.Drawing.Size(251, 192);
+            this.cogRecordDisplay4.Size = new System.Drawing.Size(251, 191);
             this.cogRecordDisplay4.TabIndex = 2;
             // 
             // cogRecordDisplay5
@@ -295,12 +275,12 @@
             this.cogRecordDisplay5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cogRecordDisplay5.DoubleTapZoomCycleLength = 2;
             this.cogRecordDisplay5.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplay5.Location = new System.Drawing.Point(3, 597);
+            this.cogRecordDisplay5.Location = new System.Drawing.Point(3, 594);
             this.cogRecordDisplay5.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
             this.cogRecordDisplay5.MouseWheelSensitivity = 1D;
             this.cogRecordDisplay5.Name = "cogRecordDisplay5";
             this.cogRecordDisplay5.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplay5.OcxState")));
-            this.cogRecordDisplay5.Size = new System.Drawing.Size(251, 193);
+            this.cogRecordDisplay5.Size = new System.Drawing.Size(251, 191);
             this.cogRecordDisplay5.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -310,12 +290,12 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(1323, 43);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(1323, 48);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 168F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(214, 799);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(214, 794);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // tableLayoutPanel7
@@ -473,7 +453,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(208, 625);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(208, 620);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
             // tableLayoutPanel10
@@ -537,7 +517,7 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox1.Image = global::Hitachi_Astemo.Properties.Resources.VNAS_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 473);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 468);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(196, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -602,7 +582,7 @@
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(1030, 34);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(1030, 39);
             this.tableLayoutPanel26.TabIndex = 4;
             // 
             // menuStrip1
@@ -619,175 +599,27 @@
             this.tsHelps_Menu1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(810, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(810, 39);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // tsChuongTrinh_Menu1
             // 
-            this.tsChuongTrinh_Menu1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsLoadProgram_Menu2,
-            this.tsEdit__Menu2});
             this.tsChuongTrinh_Menu1.Name = "tsChuongTrinh_Menu1";
-            this.tsChuongTrinh_Menu1.Size = new System.Drawing.Size(132, 30);
-            this.tsChuongTrinh_Menu1.Text = "PROGRAMS";
-            // 
-            // tsLoadProgram_Menu2
-            // 
-            this.tsLoadProgram_Menu2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG1_Menu3,
-            this.tsPG2_Menu3,
-            this.tsPG3_Menu3,
-            this.tsPG4_Menu3,
-            this.tsPG5_Menu3,
-            this.tsPG6_Menu3});
-            this.tsLoadProgram_Menu2.Name = "tsLoadProgram_Menu2";
-            this.tsLoadProgram_Menu2.Size = new System.Drawing.Size(222, 32);
-            this.tsLoadProgram_Menu2.Text = "Load Program";
-            // 
-            // tsPG1_Menu3
-            // 
-            this.tsPG1_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG1_Left_Menu4,
-            this.tsPG1_Right_Menu4});
-            this.tsPG1_Menu3.Name = "tsPG1_Menu3";
-            this.tsPG1_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG1_Menu3.Text = "Chương trình 1";
-            // 
-            // tsPG1_Left_Menu4
-            // 
-            this.tsPG1_Left_Menu4.Name = "tsPG1_Left_Menu4";
-            this.tsPG1_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG1_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG1_Right_Menu4
-            // 
-            this.tsPG1_Right_Menu4.Name = "tsPG1_Right_Menu4";
-            this.tsPG1_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG1_Right_Menu4.Text = "Phải";
-            // 
-            // tsPG2_Menu3
-            // 
-            this.tsPG2_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG2_Left_Menu4,
-            this.tsPG2_Right_Menu4});
-            this.tsPG2_Menu3.Name = "tsPG2_Menu3";
-            this.tsPG2_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG2_Menu3.Text = "Chương trình 2";
-            // 
-            // tsPG2_Left_Menu4
-            // 
-            this.tsPG2_Left_Menu4.Name = "tsPG2_Left_Menu4";
-            this.tsPG2_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG2_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG2_Right_Menu4
-            // 
-            this.tsPG2_Right_Menu4.Name = "tsPG2_Right_Menu4";
-            this.tsPG2_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG2_Right_Menu4.Text = "Phải";
-            // 
-            // tsPG3_Menu3
-            // 
-            this.tsPG3_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG3_Left_Menu4,
-            this.tsPG3_Right_Menu4});
-            this.tsPG3_Menu3.Name = "tsPG3_Menu3";
-            this.tsPG3_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG3_Menu3.Text = "Chương trình 3";
-            // 
-            // tsPG3_Left_Menu4
-            // 
-            this.tsPG3_Left_Menu4.Name = "tsPG3_Left_Menu4";
-            this.tsPG3_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG3_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG3_Right_Menu4
-            // 
-            this.tsPG3_Right_Menu4.Name = "tsPG3_Right_Menu4";
-            this.tsPG3_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG3_Right_Menu4.Text = "Phải";
-            // 
-            // tsPG4_Menu3
-            // 
-            this.tsPG4_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG4_Left_Menu4,
-            this.tsPG4_Right_Menu4});
-            this.tsPG4_Menu3.Name = "tsPG4_Menu3";
-            this.tsPG4_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG4_Menu3.Text = "Chương trình 4";
-            // 
-            // tsPG4_Left_Menu4
-            // 
-            this.tsPG4_Left_Menu4.Name = "tsPG4_Left_Menu4";
-            this.tsPG4_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG4_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG4_Right_Menu4
-            // 
-            this.tsPG4_Right_Menu4.Name = "tsPG4_Right_Menu4";
-            this.tsPG4_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG4_Right_Menu4.Text = "Phải";
-            // 
-            // tsPG5_Menu3
-            // 
-            this.tsPG5_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG5_Left_Menu4,
-            this.tsPG5_Right_Menu4});
-            this.tsPG5_Menu3.Name = "tsPG5_Menu3";
-            this.tsPG5_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG5_Menu3.Text = "Chương trình 5";
-            // 
-            // tsPG5_Left_Menu4
-            // 
-            this.tsPG5_Left_Menu4.Name = "tsPG5_Left_Menu4";
-            this.tsPG5_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG5_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG5_Right_Menu4
-            // 
-            this.tsPG5_Right_Menu4.Name = "tsPG5_Right_Menu4";
-            this.tsPG5_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG5_Right_Menu4.Text = "Phải";
-            // 
-            // tsPG6_Menu3
-            // 
-            this.tsPG6_Menu3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPG6_Left_Menu4,
-            this.tsPG6_Right_Menu4});
-            this.tsPG6_Menu3.Name = "tsPG6_Menu3";
-            this.tsPG6_Menu3.Size = new System.Drawing.Size(230, 32);
-            this.tsPG6_Menu3.Text = "Chương trình 6";
-            // 
-            // tsPG6_Left_Menu4
-            // 
-            this.tsPG6_Left_Menu4.Name = "tsPG6_Left_Menu4";
-            this.tsPG6_Left_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG6_Left_Menu4.Text = "Trái";
-            // 
-            // tsPG6_Right_Menu4
-            // 
-            this.tsPG6_Right_Menu4.Name = "tsPG6_Right_Menu4";
-            this.tsPG6_Right_Menu4.Size = new System.Drawing.Size(135, 32);
-            this.tsPG6_Right_Menu4.Text = "Phải";
-            // 
-            // tsEdit__Menu2
-            // 
-            this.tsEdit__Menu2.Name = "tsEdit__Menu2";
-            this.tsEdit__Menu2.Size = new System.Drawing.Size(222, 32);
-            this.tsEdit__Menu2.Text = "Edit Programs";
+            this.tsChuongTrinh_Menu1.Size = new System.Drawing.Size(149, 35);
+            this.tsChuongTrinh_Menu1.Text = "Edit Programs";
             // 
             // tsSetupCamera_Menu1
             // 
             this.tsSetupCamera_Menu1.Name = "tsSetupCamera_Menu1";
-            this.tsSetupCamera_Menu1.Size = new System.Drawing.Size(148, 30);
+            this.tsSetupCamera_Menu1.Size = new System.Drawing.Size(148, 35);
             this.tsSetupCamera_Menu1.Text = "Setup Camera";
             this.tsSetupCamera_Menu1.Click += new System.EventHandler(this.tsSetupCamera_Menu1_Click);
             // 
             // tsSetupPLC_Menu1
             // 
             this.tsSetupPLC_Menu1.Name = "tsSetupPLC_Menu1";
-            this.tsSetupPLC_Menu1.Size = new System.Drawing.Size(134, 30);
+            this.tsSetupPLC_Menu1.Size = new System.Drawing.Size(134, 35);
             this.tsSetupPLC_Menu1.Text = "Connect PLC";
             this.tsSetupPLC_Menu1.Click += new System.EventHandler(this.tsSetupPLC_Menu1_Click);
             // 
@@ -802,13 +634,13 @@
             // tsLogs_Menu1
             // 
             this.tsLogs_Menu1.Name = "tsLogs_Menu1";
-            this.tsLogs_Menu1.Size = new System.Drawing.Size(67, 30);
+            this.tsLogs_Menu1.Size = new System.Drawing.Size(67, 35);
             this.tsLogs_Menu1.Text = "Logs";
             // 
             // tsHelps_Menu1
             // 
             this.tsHelps_Menu1.Name = "tsHelps_Menu1";
-            this.tsHelps_Menu1.Size = new System.Drawing.Size(75, 30);
+            this.tsHelps_Menu1.Size = new System.Drawing.Size(75, 35);
             this.tsHelps_Menu1.Text = "Helps";
             // 
             // bnBegin
@@ -819,7 +651,7 @@
             this.bnBegin.Location = new System.Drawing.Point(813, 0);
             this.bnBegin.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnBegin.Name = "bnBegin";
-            this.bnBegin.Size = new System.Drawing.Size(104, 34);
+            this.bnBegin.Size = new System.Drawing.Size(104, 39);
             this.bnBegin.TabIndex = 1;
             this.bnBegin.Text = "BEGIN";
             this.bnBegin.UseVisualStyleBackColor = false;
@@ -834,7 +666,7 @@
             this.bnEnd.Location = new System.Drawing.Point(923, 0);
             this.bnEnd.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.bnEnd.Name = "bnEnd";
-            this.bnEnd.Size = new System.Drawing.Size(104, 34);
+            this.bnEnd.Size = new System.Drawing.Size(104, 39);
             this.bnEnd.TabIndex = 2;
             this.bnEnd.Text = "END";
             this.bnEnd.UseVisualStyleBackColor = false;
@@ -913,26 +745,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsChuongTrinh_Menu1;
-        private System.Windows.Forms.ToolStripMenuItem tsLoadProgram_Menu2;
-        private System.Windows.Forms.ToolStripMenuItem tsPG1_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG1_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG1_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG2_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG2_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG2_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG3_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG3_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG3_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG4_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG4_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG4_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG5_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG5_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG5_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG6_Menu3;
-        private System.Windows.Forms.ToolStripMenuItem tsPG6_Left_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsPG6_Right_Menu4;
-        private System.Windows.Forms.ToolStripMenuItem tsEdit__Menu2;
         private System.Windows.Forms.ToolStripMenuItem tsSetupCamera_Menu1;
         private System.Windows.Forms.ToolStripMenuItem tsSetupPLC_Menu1;
         private System.Windows.Forms.ToolStripMenuItem tsSetupLights_Menu1;

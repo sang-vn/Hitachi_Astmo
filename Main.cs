@@ -339,5 +339,10 @@ namespace Hitachi_Astemo
             }
         }
         #endregion
+
+        private void tsEdit__Menu2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
